@@ -1,7 +1,9 @@
 TOHMS - TA office hours Management System
 
-Course - Human Computer Interaction (CS5340)
+Course - Human Computer Interaction (CS5340) 
+
 Team Her'd
+
 Members : Keerthi Pendyala & Monisha Carol
 
 
