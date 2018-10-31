@@ -1,5 +1,10 @@
 TOHMS - TA office hours Management System
 
-This is part of the Course Human Computer Resources
+Course - Human Computer Interaction (CS5340)
+Team Her'd
+Members : Keerthi Pendyala & Monisha Carol
+
+
 References :
 https://github.com/jannunzi/web-dev-template.git
+https://github.com/keerthipendyala/e-lib/tree/master/elib
