@@ -1,4 +1,5 @@
 TOHMS - TA office hours Management System
-Course : Human Computer Resources
+
+This is part of the Course Human Computer Resources
 References :
 https://github.com/jannunzi/web-dev-template.git
