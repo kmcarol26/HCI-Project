@@ -9,3 +9,9 @@ body {
 .nv-text{font-size: medium; color: darkslateblue}
 .navbar {max-height:65px; background-color: thistle;
 !important;}
+.drop h4,
+.drop select{ display: inline}
+
+input[type=number]{
+    width: 40px;
+}

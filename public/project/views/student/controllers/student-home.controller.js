@@ -6,5 +6,8 @@
     function studentHomeController($scope, $location) {
         var vm = this;
         vm.userTypes = ["Student", "Teaching Assistant"];
+
+
+
     }
 })();
