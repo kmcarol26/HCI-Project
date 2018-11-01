@@ -16,6 +16,10 @@
 
         <h2>Confirm Details for new slot : </h2>
 
+        <div class="alert alert-success" ng-show="model.message">
+            {{model.message}}
+        </div>
+
         <div ng-show="model.error" class="alert alert-danger" role="alert">
             {{model.error}}
         </div>
@@ -23,13 +27,14 @@
         <h3>Question details :</h3>
         <div class="form-group">
             <div class="drop">
-                <h4>Category:</h4>
-                <select ng-model="category">
+                <h4 class="astr">Category: </h4>
+                <select ng-model="appointment.category" required>
+                    <br/><br/>
                     <option ng-repeat="catType in model.categoryTypes">{{catType}}</option>
                 </select>
             </div>
 
-            <h4>Summary</h4>
+            <h4 class="astr">Summary: </h4>
             <textarea
                     ng-model="appointment.summary"
                     class="form-control"
@@ -42,7 +47,7 @@
                 </span>
             </h4>
 
-            <h4>Description</h4>
+            <h4>Description: </h4>
             <textarea
                     ng-model="appointment.description"
                     class="form-control"
@@ -51,7 +56,7 @@
             </textarea>
 
             <div class=" form-group">
-                <h4>Confirm Selected Slot:
+                <h4 class="astr">Confirm Selected Slot:
                     <i data-toggle="tooltip" data-placement="right" title="You can reduce the duration of your timeslot here.
 Book time for upto 20 minutes within the available range specified below." class="fa fa-question-circle"></i></h4>
 
@@ -104,8 +109,8 @@ Book time for upto 20 minutes within the available range specified below." class
 
 
             <div class="drop form-group">
-                <h4>Visibility:</h4>
-                <select ng-model="appointment.visibility">
+                <h4 class="astr">Visibility :</h4>
+                <select ng-model="appointment.visibility" required>
                     <option ng-repeat="visibleType in model.visibleTypes">{{visibleType}}</option>
                 </select>
 
@@ -114,7 +119,7 @@ Book time for upto 20 minutes within the available range specified below." class
 
 
             <div class="drop form-group">
-                <h4>Member Count : </h4>
+                <h4 class="astr">Member Count :</h4>
                 <input ng-model="model.appointment.membercount"
                        name="membercount"
                        type="number"
@@ -126,10 +131,24 @@ Book time for upto 20 minutes within the available range specified below." class
             </div>
 
             <div class="drop form-group">
-                <h4>Phone Number : </h4>
-                <input ng-model="model.appointment.phonenumber"
+                <h4>Phone Number :</h4>
+                <input ng-model="appointment.phonenumber"
                        name="phonenumber"
-                       type="text"/>
+                       type="tel"/>
+            </div>
+
+            <br/>
+
+            <div class="form-group">
+                <a class="btn btn-danger btn-md"
+                   href="#/home">
+                    Cancel
+                </a>
+
+                <a class="btn btn-info btn-md"
+                   ng-click="model.bookAppointment(appointment)">
+                    Book
+                </a>
             </div>
 
 
