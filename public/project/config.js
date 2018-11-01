@@ -12,5 +12,10 @@
                 controller: 'studentLoginController',
                 controllerAs: 'model'
             })
+            .when("/home", {
+                templateUrl: "views/student/templates/student-home.view.client.html",
+                controller: 'studentHomeController',
+                controllerAs: 'model'
+            })
     }
 })();
