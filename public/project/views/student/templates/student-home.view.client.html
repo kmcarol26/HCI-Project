@@ -12,6 +12,36 @@
 </nav>
 
 <div class="container">
-    <H1>Hello World</H1>
-    This is the home page
+    <br/>
+    <h3>Courses where you are :
+    <select ng-model="user">
+        <option ng-repeat="userType in model.userTypes">{{userType}}</option>
+    </select>
+    </h3>
+
+    <br/>
+    <br/>
+
+    <div ng-show="user == 'Student'">
+
+        <h2><u>Check TA Office hours for :</u>
+
+        <br/>
+            <br/>
+
+        <ul>
+            <li><h3><a href ="#"> CS5200 - Database Management Systems </a></h3></li>
+            <br/>
+            <li><h3><a href ="#"> CS6400 - DataMining Techniques </a></h3></li>
+        </ul>
+
+        </h2>
+    </div>
+
+    <div ng-show="user == 'Teaching Assistant'" class="alert alert-danger" role="alert">
+        No Courses Found!
+    </div>
+
+
+
 </div>
