@@ -1,10 +1,60 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-text pull-right">
+            <a class="btn btn-lg"><i class="glyphicon glyphicon-home"></i></a>
+        </div>
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#/home">
+                <b class="nv-text pull-right"><h2>TOHMS</h2></b>
+            </a>
+        </div>
+    </div>
+</nav>
 
-</body>
-</html>
+<div class="container-fluid">
+    <form name="privateForm" ng-class="{submitted:privateForm.submitted}">
+
+        <h2>Confirm Details for new slot : </h2>
+
+        <div ng-show="model.error" class="alert alert-danger" role="alert">
+            {{model.error}}
+        </div>
+
+        <h3>Question details :</h3>
+        <div class="form-group">
+            <h4>Category:
+                <select ng-model="category">
+                    <option ng-repeat="catType in model.categoryTypes">{{catType}}</option>
+                </select>
+
+                <h4>Summary</h4>
+                <textarea
+                        ng-model="summary"
+                        class="form-control"
+                        placeholder="Type Question.."
+                        rows="1" cols="2"
+                        required>
+                </textarea>
+                <span class="text-error"
+                      data-ng-show="privateForm.submitted && privateForm.summary.$error.required">
+                </span>
+            </h4>
+
+            <h4>Description</h4>
+            <textarea
+                    ng-model="description"
+                    class="form-control"
+                    placeholder="Enter brief description"
+                    rows="3" cols="3">
+            </textarea>
+
+            <h4>Time</h4>
+
+
+            </h4>
+
+        </div>
+
+    </form>
+</div>
+

@@ -17,5 +17,12 @@
                 controller: 'studentHomeController',
                 controllerAs: 'model'
             })
+            .when("/bookprivate", {
+                templateUrl: "views/student/templates/private-appointment.view.client.html",
+                controller: 'privateAppointmentController',
+                controllerAs: 'model'
+            })
+
+
     }
 })();
