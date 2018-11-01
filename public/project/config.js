@@ -22,6 +22,11 @@
                 controller: 'privateAppointmentController',
                 controllerAs: 'model'
             })
+            .when("/bookpublic", {
+                templateUrl: "views/student/templates/public-appointment.view.client.html",
+                controller: 'publicAppointmentController',
+                controllerAs: 'model'
+            })
 
 
     }

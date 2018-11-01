@@ -1,0 +1,114 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-text pull-right">
+            <a class="btn btn-lg"><i class="glyphicon glyphicon-home"></i></a>
+        </div>
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#/home">
+                <b class="nv-text pull-right"><h2>TOHMS</h2></b>
+            </a>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid">
+    <form name="privateForm" ng-class="{submitted:privateForm.submitted}">
+
+        <h2>Confirm joining group discussion : </h2>
+
+        <div class="alert alert-success" ng-show="model.message">
+            {{model.message}}
+        </div>
+
+        <div ng-show="model.error" class="alert alert-danger" role="alert">
+            {{model.error}}
+        </div>
+
+        <h3>Question details: </h3>
+
+        <button type="button" class="btn btn-primary btn-md" disabled>
+            {{model.appointment.category}}
+        </button>
+
+
+        <div class="form-group">
+            <h4>Summary:
+            <textarea readonly
+                    ng-model="model.appointment.summary"
+                    class="form-control"
+                    rows="1" cols="2">
+                </textarea>
+            </h4>
+        </div>
+
+            <h4>Description: </h4>
+            <textarea readonly
+                    ng-model="model.appointment.description"
+                    class="form-control"
+                    rows="3" cols="3">
+            </textarea>
+
+            <div class="form-group">
+                <h4>Time Slot:</h4>
+                </div>
+
+                <input ng-model="model.appointment.startTime"
+                       name="startTime"
+                       type="time"
+                       readonly/>
+
+                -
+
+                <input ng-model="model.appointment.endTime"
+                       name="endTime"
+                       type="time"
+                       readonly/>
+
+            <div class="form-group">
+                <h4>Members Registered: </h4>
+
+            <input ng-model="model.appointment.membercount"
+                   name="membercount"
+                   type="text"
+                   readonly/>
+            </div>
+
+
+            <div class="drop form-group">
+                <h4 class="astr">Member Count :</h4>
+                <input ng-model="appointment.additionalmembers"
+                       name="additionalmembers"
+                       type="number"
+                       size="4"
+                       required/>
+                <span class="text-error"
+                      data-ng-show="privateForm.submitted && privateForm.membercount.$error.required">
+                </span>
+            </div>
+
+            <div class="drop form-group">
+                <h4>Phone Number :</h4>
+                <input ng-model="appointment.phonenumber"
+                       name="phonenumber"
+                       type="tel"/>
+            </div>
+
+            <br/>
+
+            <div class="form-group">
+                <a class="btn btn-danger btn-md"
+                   href="#/home">
+                    Cancel
+                </a>
+
+                <a class="btn btn-info btn-md"
+                   ng-click="model.bookAppointment(appointment)">
+                    Book
+                </a>
+            </div>
+
+        </div>
+
+    </form>
+</div>
+
