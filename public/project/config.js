@@ -27,6 +27,11 @@
                 controller: 'publicAppointmentController',
                 controllerAs: 'model'
             })
+            .when("/studentcalendar", {
+                templateUrl: "views/student/templates/student-calendar.view.client.html",
+                controller: 'studentCalendarController',
+                controllerAs: 'model'
+            })
 
 
     }
