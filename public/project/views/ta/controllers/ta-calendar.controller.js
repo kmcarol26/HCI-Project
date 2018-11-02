@@ -12,10 +12,15 @@
         $(function() {
             $('#calendar').fullCalendar({
                 defaultView: 'agendaWeek',
-                minTime:'1:00:00',
+                minTime:'9:00:00',
                 maxTime:'18:00:00',
                 eventLimit: true,
-                // slotDuration:'00:15:00',
+                height:'auto',
+                header: {
+                    left: 'prev,next today',
+                    center: 'title',
+                    right: 'agendaDay'
+                },
 
 
                 events: [

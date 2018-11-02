@@ -7,6 +7,7 @@
         var vm = this;
         vm.openPublicAppointment = openPublicAppointment;
         vm.openPrivateAppointment=openPrivateAppointment;
+        vm.findQuestions=findQuestions;
         vm.uid = $routeParams['uid'];
 
 
@@ -43,6 +44,7 @@
             console.log($rootScope.events);
             $('#calendar').fullCalendar({
                 allDaySlot:false,
+                height:610,
                 defaultDate: "2018-11-22",
                 defaultView: 'agendaDay',
                 selectable: true,
@@ -80,16 +82,21 @@
             event.category = "HW1";
             event.description = "How to solve this problem? Please help. Thanks";
             $rootScope.publicEvent = event;
-            $location.url('/bookpublic/');
+            $location.url('/taBookPublic/');
             $scope.$apply();
         }
 
         function openPrivateAppointment(s,e){
             var event = {startTime : s, endTime : e};
             $rootScope.privateEvent = event;
-            $location.url('/bookprivate/');
+            $location.url('/taBookPrivate/');
             $scope.$apply();
+        }
+
+        function findQuestions(term){
+            console.log('here');
+            $('a.fc-time-grid-event.fc-v-event.fc-event.fc-start.fc-end').css({"border-color": "red", "border-width": "thick"});
         }
     }
 
-})();
+})();s

@@ -54,6 +54,17 @@
                 controller: 'taDayController',
                 controllerAs: 'model'
             })
+            .when("/taBookPrivate", {
+                templateUrl: "views/ta/templates/private-appointment.view.client.html",
+                // controller: 'taDayController',
+                // controllerAs: 'model'
+            })
+            .when("/taBookPublic", {
+                templateUrl: "views/ta/templates/public-appointment.view.client.html",
+                // controller: 'taDayController',
+                // controllerAs: 'model'
+            })
+
 
 
     }
