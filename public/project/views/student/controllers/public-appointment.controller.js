@@ -3,35 +3,37 @@
         .module("TOHMS")
         .controller("publicAppointmentController", publicAppointmentController);
 
-    function publicAppointmentController($scope, $location) {
+    function publicAppointmentController($rootScope, $scope, $location) {
         var vm = this;
         vm.categoryTypes = ["HW1", "HW2", "HW3", "Exam", "Project"];
         vm.bookAppointment = bookAppointment;
         vm.confirmAppointment=confirmAppointment;
 
         function init() {
-            vm.initStartTime = new Date("January 1, 1970 12:15:00");
-            vm.initEndTime = new Date("January 1, 1970 12:30:00");
-            vm.appointment = {startTime: vm.initStartTime, endTime : vm.initEndTime, category: "HW2",
-                membercount :1 , summary : "Some Question", description : "Some Description"};
+            vm.event = $rootScope.publicEvent;
+            vm.initStartTime = new Date(vm.event.start._i);
+            vm.initEndTime = new Date(vm.event.end._i);
+            vm.appointment = {startTime: vm.initStartTime, endTime : vm.initEndTime, category: vm.event.category,
+                membercount :1 , summary : vm.event.title, description : vm.event.description};
 
             $('[data-toggle="tooltip"]').tooltip();
         }
         init();
 
         function bookAppointment() {
-            if ($scope.privateForm.$valid) {
-                $('#confirmModal').modal('show');
 
+            if ($scope.publicForm.$valid) {
+                $('#confirmModal').modal('show');
             }
             else {
-                $scope.privateForm.submitted = true;
+                $scope.publicForm.submitted = true;
                 vm.error = "Fill required fields correctly";
             }
         }
 
         function confirmAppointment(appointment) {
-            console.log(appointment);
+            $(".modal-backdrop").remove();
+            $location.url('/studentday/1');
             vm.message = "Appointment Booked";
             vm.error="";
         }

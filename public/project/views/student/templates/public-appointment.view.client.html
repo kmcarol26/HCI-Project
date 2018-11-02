@@ -12,7 +12,7 @@
 </nav>
 
 <div class="container-fluid">
-    <form name="privateForm" ng-class="{submitted:privateForm.submitted}">
+    <form name="publicForm" ng-class="{submitted:publicForm.submitted}">
 
         <h2>Confirm joining group discussion : </h2>
 
@@ -99,7 +99,7 @@
 
             <div class="form-group">
                 <a class="btn btn-danger btn-md"
-                   href="#/home">
+                   href="#/studentday/0">
                     Cancel
                 </a>
 
@@ -129,7 +129,7 @@
                         <h5><b>Member Count</b> : {{appointment.additionalmembers}}</h5>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal"
+                        <button type="button" class="btn btn-primary"
                                 ng-click="model.confirmAppointment(appointment)">Confirm</button>
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                     </div>
