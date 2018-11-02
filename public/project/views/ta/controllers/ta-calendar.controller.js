@@ -32,7 +32,7 @@
                         start  : '2018-11-02T11:00:00',
                         end    :  '2018-11-02T13:00:00',
                         allDay :false,
-                        url:'#/taday/1'
+                        url:'#/taday/-1'
 
 
 
@@ -42,8 +42,12 @@
                 eventColor: '#378006',
                 eventClick: function(event) {
                     if (event.url) {
-                        window.open(event.url);
+                        location.url(event.url);
+
                         return false;
+                    }
+                    if (event.id=='2'){
+                        location.url('/newTaHours/');
                     }
                 },
                 dayClick: function(date, jsEvent, view) {
