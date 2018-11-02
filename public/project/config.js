@@ -75,6 +75,12 @@
                 // controller: 'taDayController',
                 // controllerAs: 'model'
             })
+            .when("/newTaHours/", {
+                templateUrl: "views/ta/templates/new-ta-hours.view.client.html",
+                controller: 'newHoursDayController',
+                controllerAs: 'model'
+            })
+
 
 
 

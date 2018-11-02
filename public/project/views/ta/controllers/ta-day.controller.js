@@ -12,10 +12,10 @@
 
 
         function init() {
-            if(vm.uid == 1)
-            {
-                vm.booked = "Appointment Booked!";
-            }
+            // if(vm.uid == 1)
+            // {
+            //     vm.booked = "Appointment Booked!";
+            // }
             vm.minTime = "11:00:00";
             vm.maxTime = "13:00:00";
             vm.ed = '2018-11-22T12:20:00';
@@ -36,13 +36,15 @@
                     selectable : false
                 });
                 $rootScope.events.push({
-                    start: '2018-11-22T11:05:00',
+                    title:"Android Layout Problem",
+                    start: '2018-11-22T11:00:00',
                     end: '2018-11-22T11:15:00',
-                    color: 'black',
                     editable: false,
-                    rendering: 'background',
+                    color: 'darkcyan',
                     public: false,
-                    bg : true
+
+
+
                 });
 
             }
@@ -67,34 +69,34 @@
                 maxTime : vm.maxTime,
 
                 eventRender: function(eventObj, $el) {
-                    if(eventObj.public)
-                        $el.popover({
-                            title: "Public Appointment",
-                            content: "Click on this slot to join a group appointment for the question.",
-                            trigger: 'hover',
-                            placement: 'top',
-                            container: 'body'
-                        });
-
-                    else if(eventObj.rendering == 'background')
-                    {
-                        $el.popover({
-                            title: "Private Appointment",
-                            content: "This slot is unavailable as it was booked by someone else",
-                            trigger: 'hover',
-                            placement: 'top',
-                            container: 'body'
-                        });
-                    }
-
-                    else
-                        $el.popover({
-                            title: "Private Appointment",
-                            content: "This appointment is only visible to you",
-                            trigger: 'hover',
-                            placement: 'top',
-                            container: 'body'
-                        });
+                    // if(eventObj.public)
+                    //     $el.popover({
+                    //         title: "Public Appointment",
+                    //         content: "Click on this slot to join a group appointment for the question.",
+                    //         trigger: 'hover',
+                    //         placement: 'top',
+                    //         container: 'body'
+                    //     });
+                    //
+                    // else if(eventObj.rendering == 'background')
+                    // {
+                    //     $el.popover({
+                    //         title: "Private Appointment",
+                    //         content: "This slot is unavailable as it was booked by someone else",
+                    //         trigger: 'hover',
+                    //         placement: 'top',
+                    //         container: 'body'
+                    //     });
+                    // }
+                    //
+                    // else
+                    //     $el.popover({
+                    //         title: "Private Appointment",
+                    //         content: "This appointment is only visible to you",
+                    //         trigger: 'hover',
+                    //         placement: 'top',
+                    //         container: 'body'
+                    //     });
 
                 },
 
@@ -102,6 +104,8 @@
 
                     if(event.public)
                         vm.openPublicAppointment(event);
+                    else
+                        vm.openPrivateAppointment(event);
 
                 },
                 select: function(startDate, endDate) {
