@@ -12,126 +12,123 @@
 </nav>
 
 <div class="container-fluid">
-    <form name="publicForm" ng-class="{submitted:publicForm.submitted}">
 
-        <h2>Confirm joining group discussion : </h2>
+    <form name="privateForm" ng-class="{submitted:privateForm.submitted}">
+
+        <h2>Confirm Details for new appointment : </h2>
 
         <div class="alert alert-success" ng-show="model.message">
             {{model.message}}
         </div>
 
-        <div ng-show="model.error" class="alert alert-danger" role="alert">
-            {{model.error}}
-        </div>
-
-        <h3>Question details: </h3>
-
-        <button type="button" class="btn btn-primary btn-md" disabled>
-            {{model.appointment.category}}
-        </button>
 
 
+        <h3>Question details :</h3>
         <div class="form-group">
-            <h4>Summary:
-            <textarea readonly
-                    ng-model="model.appointment.summary"
-                    class="form-control"
-                    rows="1" cols="2">
-                </textarea>
+            <div class="drop">
+                <h4 class="astr">Category: </h4>
+                <input type="text" value="HW-1" class="field left" readonly>
+            </div>
+
+            <h4 class="astr">Summary: </h4>
+
+            <textarea rows="4" cols="50" readonly value="helo" class="form-control"
+
+                      rows="3" cols="3">
+File Upload Issue
+</textarea>
+
             </h4>
-        </div>
 
             <h4>Description: </h4>
-            <textarea readonly
-                    ng-model="model.appointment.description"
-                    class="form-control"
-                    rows="3" cols="3">
-            </textarea>
 
-            <div class="form-group">
-                <h4>Time Slot:</h4>
-                </div>
+            <textarea rows="4" cols="50" readonly value="helo" class="form-control"
 
-                <input ng-model="model.appointment.startTime"
-                       name="startTime"
-                       type="time"
-                       readonly/>
+                      rows="3" cols="3">
+I'm unable to upload my assignment to Blackboards
+</textarea>
+
+            <div class=" form-group">
+                <h4 class="astr">Confirm Selected Slot:
+                    <i data-toggle="tooltip" data-placement="right" title="You can reduce the duration of your timeslot here.
+Book time for upto 20 minutes within the available range specified below." class="fa fa-question-circle"></i></h4>
+
+
+                Question of design heuristics
+
+                <input type="text" value="12:00" class="field left" readonly>
+
+                </span>
+
 
                 -
 
-                <input ng-model="model.appointment.endTime"
-                       name="endTime"
-                       type="time"
-                       readonly/>
+                <input type="text" value="12:15" class="field left" readonly>
 
-        <i>{{(model.appointment.endTime - model.appointment.startTime)/60000}} mins</i>
+                </span>
 
-            <div class="form-group">
-                <h4>Members Registered: </h4>
 
-            <input ng-model="model.appointment.membercount"
-                   name="membercount"
-                   type="text"
-                   readonly/>
+                <span ng-if="(model.appointment.endTime - model.appointment.startTime)/60000 > 0">
+               <i> {{(model.appointment.endTime - model.appointment.startTime)/60000}} mins </i>
+            </span>
+
+            </div>
+
+
+            <div class="drop form-group">
+                <h4 class="astr">Visibility :</h4>
+                <input type="text" value="Public" class="field left" readonly>
+
+                </h4>
             </div>
 
 
             <div class="drop form-group">
                 <h4 class="astr">Member Count :</h4>
-                <input ng-model="appointment.additionalmembers"
-                       name="additionalmembers"
-                       type="number"
-                       size="4"
-                       required/>
-                <span class="text-error"
-                      data-ng-show="privateForm.submitted && privateForm.membercount.$error.required">
-                </span>
+                <input type="text" value="3" class="field left" readonly>
+
             </div>
 
             <div class="drop form-group">
                 <h4>Phone Number :</h4>
-                <input ng-model="appointment.phonenumber"
-                       name="phonenumber"
-                       type="tel"/>
+                <input type="tel" value="777-654-7665" class="field left" readonly>
             </div>
 
             <br/>
 
             <div class="form-group">
                 <a class="btn btn-danger btn-md"
-                   href="#/studentday/0">
-                    Cancel
+                   href="#/taday/-1">
+                    OK
                 </a>
 
-                <button type="button" class="btn btn-info btn-md"
-                        ng-click="model.bookAppointment()">
-                    Join
-                </button>
+
             </div>
 
 
-        <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="confirmModal" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="pull-right btn-danger" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        <h4 class="modal-title"> <b>Confirm Appointment?</b>
-                        </h4>
-                    </div>
-                    <div class="modal-body">
-                        <h5> <b>Date</b> : 25th October, 2018 </h5>
-                        <h5><b>Time </b>: {{model.appointment.startTime.getHours()}}:{{model.initStartTime.getMinutes()}}
-                            PM - {{model.initEndTime.getHours()}}:{{model.initEndTime.getMinutes()}} PM </h5>
-                        <h5><b>Teaching Assistant </b>: Tweety</h5>
-                        <h5><b>Appointment Type</b> : Public </h5>
-                        <h5><b>Member Count</b> : {{appointment.additionalmembers}}</h5>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-primary"
-                                ng-click="model.confirmAppointment(appointment)">Confirm</button>
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="confirmModal" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="pull-right btn-danger" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title"> <b>Confirm Appointment?</b>
+                            </h4>
+                        </div>
+                        <div class="modal-body">
+                            <h5> <b>Date</b> : 25th October, 2018 </h5>
+                            <h5><b>Time </b>: {{model.appointment.startTime.getHours()}}:{{model.appointment.startTime.getMinutes()}}
+                                PM - {{model.appointment.endTime.getHours()}}:{{model.appointment.endTime.getMinutes()}} PM </h5>
+                            <h5><b>Teaching Assistant </b>: Tweety</h5>
+                            <h5><b>Appointment Type</b> : {{appointment.visibility}} </h5>
+                            <h5><b>Member Count</b> : {{model.appointment.membercount}}</h5>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                    ng-click="model.confirmAppointment(appointment)">Confirm</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        </div>
                     </div>
                 </div>
             </div>
