@@ -36,6 +36,63 @@
         </div>
         <div ng-show="tab=='quest'" class="tab-pane active" id="questions-div" role="tabpanel" aria-labelledby="profile-tab">
 
+            <div id="accordion">
+                <div class="card" >
+                    <div class="card-header" id="headingOne">
+                        <h3 class="mb-0">
+                            <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                               <h5>Homework#1</h5>
+                            </button>
+                        </h3>
+                    </div>
+
+                    <div id="collapseOne" class="collapse " aria-labelledby="headingOne" data-parent="#accordion">
+                        <div class="card col-6" style="width: 14rem;">
+                            <div class="card-body">
+                                <p style="font-weight: bold" class="card-title">File Upload Issue</p>
+                                <p class="card-text">I have issues uploading the assignment onto blackboard</p>
+
+                            </div>
+                        </div>
+                        <div class="card cold-6" style="width: 14rem;">
+                            <div class="card-body">
+                                <p style="font-weight: bold" class="card-title">Android layout problem</p>
+                                <p class="card-text">I have difficulty in using the Constraint layout</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="card col-4 ">
+                    <div class="card-header" id="headingTwo">
+                        <h3 class="mb-0">
+                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                <h5>Grading</h5>
+                            </button>
+                        </h3>
+                    </div>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                        <div class="card-body">
+                           <p style="font-weight: bold"> No issues found</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="card col-4">
+                    <div class="card-header" id="headingThree">
+                        <h3 class="mb-0">
+                            <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                <h5>General</h5>
+                            </button>
+                        </h3>
+                    </div>
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                        <div class="card-body">
+                            <p style="font-weight: bold"> No issues found</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
 
         </div>
 
