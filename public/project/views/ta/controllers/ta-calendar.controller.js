@@ -5,6 +5,8 @@
 
     function taCalendarController($scope, $location) {
         var vm = this;
+
+
         vm.studentNames = ["Noddy", "Winnie"];
 
         $(function() {
@@ -19,11 +21,12 @@
                 events: [
 
                     {
+                        id:'1',
                         title  : 'CS5200 Office Hours',
                         start  : '2018-11-02T10:00:00',
-                        end    :  '2018-11-02T12:00:00',
+                        end    :  '2018-11-02T11:00:00',
                         allDay :false,
-                        url:'/#/bookpublic'
+                        url:'#/taday/1'
 
 
 
@@ -40,21 +43,37 @@
                 dayClick: function(date, jsEvent, view) {
 
                     $('#calendar').fullCalendar('renderEvent', {
+                        id: '2',
                         title: 'CS5200 Office Hours',
                         start: date,
                         allDay: false,
-                        editable : true,
+                        editable: true,
                         startEditable: true,
                         durationEditable: true
-                    },true);
-
+                    }, true)
                 },
-                eventMouseover: function( event, jsEvent, view ) {
+                    eventRender: function(eventObj, $el) {
+                        if (eventObj.id != '2') {
+                            $el.popover({
+                                title: eventObj.duration,
+                                content: "Click to see the full schedule",
+                                trigger: 'hover',
+                                placement: 'top',
+                                container: 'body'
+                            });
 
-                }
+                        }
+                        else{
+                            $el.popover({
+                                title: eventObj.duration,
+                                content: "Drag to adjust the time",
+                                trigger: 'hover',
+                                placement: 'top',
+                                container: 'body'
+                            });
 
-
-
+                        }
+                    }
 
             })
         });
