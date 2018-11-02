@@ -3,7 +3,7 @@
         .module("TOHMS")
         .controller("privateAppointmentController", privateAppointmentController);
 
-    function privateAppointmentController($scope, $location) {
+    function privateAppointmentController($scope, $rootScope, $location) {
         var vm = this;
         vm.categoryTypes = ["HW1", "HW2", "HW3", "Exam", "Project"];
         vm.visibleTypes = ["Public", "Private"];
@@ -11,8 +11,9 @@
         vm.confirmAppointment=confirmAppointment;
 
         function init() {
-            vm.initStartTime = new Date("January 1, 1970 12:15:00");
-            vm.initEndTime = new Date("January 1, 1970 12:30:00");
+            var event = $rootScope.privateEvent;
+            vm.initStartTime = new Date(event.startTime);
+            vm.initEndTime = new Date(event.endTime);
             vm.appointment = {startTime: vm.initStartTime, endTime : vm.initEndTime};
             vm.appointment.membercount = 1;
             $('[data-toggle="tooltip"]').tooltip();
@@ -31,11 +32,24 @@
         }
 
         function confirmAppointment(appointment) {
-            console.log(appointment);
+            var p;
+            if(appointment.visibility == "Public")
+                p = true;
+            else
+                p = false;
+            $(".modal-backdrop").remove();
+            $rootScope.events.push({
+                title: appointment.summary,
+                start: vm.appointment.startTime,
+                end: vm.appointment.endTime,
+                color:'darkcyan',
+                editable: false,
+                public:p
+            });
+            $location.url('/studentday/1');
             vm.message = "Appointment Booked";
             vm.error="";
         }
-
 
 
     }

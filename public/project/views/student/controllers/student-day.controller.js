@@ -11,6 +11,7 @@
 
 
 
+
         function init() {
             if(vm.uid == 1)
             {
@@ -19,46 +20,43 @@
             vm.minTime = "10:00:00";
             vm.maxTime = "15:00:00";
 
-            vm.events = [
-                {
-                    start:'2018-11-22T10:00:00',
+
+            if(vm.uid == -1) {
+                $rootScope.events.push({
+                    start: '2018-11-22T10:00:00',
                     end: '2018-11-22T11:00:00',
                     color: 'black',
                     editable: false,
                     rendering: 'background',
                     public: false
-                },{
+                });
+
+                $rootScope.events.push({
                     title: "File Upload Issue",
                     start: '2018-11-22T12:00:00',
                     end: '2018-11-22T12:40:00',
-                    color:'darkcyan',
+                    color: 'darkcyan',
                     editable: false,
                     public: true
-                }
-            ];
+                });
+            }
 
 
+            console.log($rootScope.events);
             $('#calendar').fullCalendar({
                 allDaySlot:false,
                 defaultDate: "2018-11-22",
                 defaultView: 'agendaDay',
                 selectable: true,
+                timezone: 'local',
                 header: {
                     left: 'prev,next today',
                     center: 'title',
                     right: 'agendaDay'
                 },
-                events : vm.events,
+                events : $rootScope.events,
                 minTime : vm.minTime,
                 maxTime : vm.maxTime,
-                dayClick: function(date, jsEvent, view) {
-
-                    alert('Coordinates: ' + jsEvent.pageX + ',' + jsEvent.pageY);
-
-                    // change the border color just for fun
-                    $(this).css('border-color', 'red');
-
-                },
 
                 eventClick: function(event, jsEvent, view) {
 
@@ -68,7 +66,7 @@
 
                 },
                 select: function(startDate, endDate) {
-                    vm.openPrivateAppointment(startDate, endDate);
+                    vm.openPrivateAppointment(startDate._d, endDate._d);
                 }
             });
 
@@ -94,7 +92,6 @@
             $location.url('/bookprivate/');
             $scope.$apply();
         }
-
     }
 
 })();
