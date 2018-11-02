@@ -102,7 +102,7 @@ Book time for upto 20 minutes within the available range specified below." class
 
 
                 <span ng-if="(model.appointment.endTime - model.appointment.startTime)/60000 > 0">
-                {{(model.appointment.endTime - model.appointment.startTime)/60000}} mins
+               <i> {{(model.appointment.endTime - model.appointment.startTime)/60000}} mins </i>
             </span>
 
             </div>
@@ -145,12 +145,39 @@ Book time for upto 20 minutes within the available range specified below." class
                     Cancel
                 </a>
 
-                <a class="btn btn-info btn-md"
-                   ng-click="model.bookAppointment(appointment)">
+                <button type="button" class="btn btn-info btn-md"
+                   ng-click="model.bookAppointment()">
                     Book
-                </a>
+                </button>
             </div>
 
+
+            <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="confirmModal" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="pull-right btn-danger" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title"> <b>Confirm Appointment?</b>
+                            </h4>
+                        </div>
+                        <div class="modal-body">
+                            <h5> <b>Date</b> : 25th October, 2018 </h5>
+                            <h5><b>Time </b>: {{model.appointment.startTime.getHours()}}:{{model.initStartTime.getMinutes()}}
+                            PM - {{model.endTime.getHours()}}:{{model.endTime.getMinutes()}} PM </h5>
+                            <h5><b>Teaching Assistant </b>: Tweety</h5>
+                            <h5><b>Appointment Type</b> : {{appointment.visibility}} </h5>
+                            <h5><b>Member Count</b> : {{model.appointment.membercount}}</h5>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                    ng-click="model.confirmAppointment(appointment)">Confirm</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
 
 
         </div>

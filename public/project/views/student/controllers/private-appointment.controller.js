@@ -8,6 +8,7 @@
         vm.categoryTypes = ["HW1", "HW2", "HW3", "Exam", "Project"];
         vm.visibleTypes = ["Public", "Private"];
         vm.bookAppointment = bookAppointment;
+        vm.confirmAppointment=confirmAppointment;
 
         function init() {
             vm.initStartTime = new Date("January 1, 1970 12:15:00");
@@ -18,18 +19,21 @@
         }
         init();
 
-
-
-        function bookAppointment(appointment) {
+        function bookAppointment() {
             if ($scope.privateForm.$valid) {
-                console.log(appointment);
-                 vm.message = "Appointment Booked";
-                 vm.error="";
+                    $('#confirmModal').modal('show');
+
             }
             else {
                 $scope.privateForm.submitted = true;
                 vm.error = "Fill required fields correctly";
             }
+        }
+
+        function confirmAppointment(appointment) {
+            console.log(appointment);
+            vm.message = "Appointment Booked";
+            vm.error="";
         }
 
 
