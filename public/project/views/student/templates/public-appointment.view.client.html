@@ -1,10 +1,10 @@
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
         <div class="navbar-text pull-right">
-            <a class="btn btn-lg"><i class="glyphicon glyphicon-home"></i></a>
+            <a class="btn btn-lg" href="#/home"><i class="glyphicon glyphicon-home"></i></a>
         </div>
         <div class="navbar-header">
-            <a class="navbar-brand" href="#/home">
+            <a class="navbar-brand btn">
                 <b class="nv-text pull-right"><h2>TOHMS</h2></b>
             </a>
         </div>
@@ -129,9 +129,9 @@
                         <h5><b>Member Count</b> : {{appointment.additionalmembers}}</h5>
                     </div>
                     <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                         <button type="button" class="btn btn-primary"
                                 ng-click="model.confirmAppointment(appointment)">Confirm</button>
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
