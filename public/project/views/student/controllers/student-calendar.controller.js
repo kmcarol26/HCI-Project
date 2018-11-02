@@ -5,7 +5,7 @@
 
     function studentCalendarController($scope, $location) {
         var vm = this;
-        vm.userTypes = ["Student", "Teaching Assistant"];
+        vm.taNames = ["Tweety", "Sylvester"];
 
         $(function() {
             $('#calendar').fullCalendar({
