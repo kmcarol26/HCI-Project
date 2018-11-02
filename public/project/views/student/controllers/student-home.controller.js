@@ -7,7 +7,6 @@
         var vm = this;
         vm.userTypes = ["Student", "Teaching Assistant"];
 
-
-
     }
+
 })();
