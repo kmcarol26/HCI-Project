@@ -1,0 +1,50 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-text pull-right">
+            <a class="btn btn-lg"><i class="glyphicon glyphicon-home"></i></a>
+        </div>
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#/home">
+                <b class ="nv-text pull-right"><h2>TOHMS</h2></b>
+            </a>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <br/>
+    <h3>Courses where you are :
+        <select ng-model="user">
+            <option ng-repeat="userType in model.userTypes">{{userType}}</option>
+        </select>
+    </h3>
+
+    <br/>
+    <br/>
+
+    <div ng-show="user == 'Teaching Assistant'">
+
+        <h2><u>Check TA Office hours for :</u>
+
+            <br/>
+            <br/>
+
+            <ul>
+                <li><h3><a href ="#/tacalendar"> CS5200 - Database Management Systems </a></h3></li>
+                <br/>
+                <li><h3><a href ="#/tacalendar"> CS6400 - DataMining Techniques </a></h3></li>
+            </ul>
+
+        </h2>
+    </div>
+
+    <div ng-show="user == 'Student'" class="alert alert-danger" role="alert">
+        No Courses Found!
+    </div>
+
+
+    <div id='calendar'></div>
+
+
+
+</div>

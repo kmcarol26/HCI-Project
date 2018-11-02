@@ -32,6 +32,16 @@
                 controller: 'studentCalendarController',
                 controllerAs: 'model'
             })
+            .when("/taHome", {
+                templateUrl: "views/ta/templates/ta-home.view.client.html",
+                controller: 'taHomeController',
+                controllerAs: 'model'
+            })
+            .when("/tacalendar", {
+                templateUrl: "views/ta/templates/ta-calendar.view.client.html",
+                controller: 'taCalendarController',
+                controllerAs: 'model'
+            })
 
 
     }
