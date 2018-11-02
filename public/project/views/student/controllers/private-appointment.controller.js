@@ -11,6 +11,7 @@
         vm.confirmAppointment=confirmAppointment;
 
         function init() {
+            $('.popover.in').remove();
             var event = $rootScope.privateEvent;
             vm.initStartTime = new Date(event.startTime);
             vm.initEndTime = new Date(event.endTime);
@@ -33,16 +34,20 @@
 
         function confirmAppointment(appointment) {
             var p;
-            if(appointment.visibility == "Public")
+            if(appointment.visibility == "Public") {
+                appointment.color = 'darkcyan';
                 p = true;
-            else
+            }
+            else {
+                appointment.color = 'darkblue';
                 p = false;
+            }
             $(".modal-backdrop").remove();
             $rootScope.events.push({
                 title: appointment.summary,
                 start: vm.appointment.startTime,
                 end: vm.appointment.endTime,
-                color:'darkcyan',
+                color:appointment.color,
                 editable: false,
                 public:p
             });

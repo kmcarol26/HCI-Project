@@ -1,7 +1,18 @@
 (function () {
     angular
         .module("TOHMS")
-        .config(configuration);
+        .config(configuration)
+        .run(['$http', '$rootScope', function($rootScope) {
+                $rootScope.events = [];
+            $rootScope.events.concat({
+                start: '2018-11-22T10:00:00',
+                end: '2018-11-22T11:00:00',
+                color: 'black',
+                editable: false,
+                rendering: 'background',
+                public: false
+            });
+            }]);
 
     function configuration($routeProvider, $httpProvider) {
         $httpProvider.defaults.headers.post['Content-Type'] = 'application/json;charset=utf-8';

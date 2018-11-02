@@ -10,6 +10,7 @@
         vm.confirmAppointment=confirmAppointment;
 
         function init() {
+            $('.popover.in').remove();
             vm.event = $rootScope.publicEvent;
             vm.initStartTime = new Date(vm.event.start._i);
             vm.initEndTime = new Date(vm.event.end._i);
