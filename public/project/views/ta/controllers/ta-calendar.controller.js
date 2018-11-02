@@ -12,7 +12,7 @@
         $(function() {
             $('#calendar').fullCalendar({
                 defaultView: 'agendaWeek',
-                minTime:'9:00:00',
+                minTime:'1:00:00',
                 maxTime:'18:00:00',
                 eventLimit: true,
                 // slotDuration:'00:15:00',
@@ -23,8 +23,8 @@
                     {
                         id:'1',
                         title  : 'CS5200 Office Hours',
-                        start  : '2018-11-02T10:00:00',
-                        end    :  '2018-11-02T11:00:00',
+                        start  : '2018-11-02T11:00:00',
+                        end    :  '2018-11-02T13:00:00',
                         allDay :false,
                         url:'#/taday/1'
 

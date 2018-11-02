@@ -32,10 +32,6 @@ form.submitted .ng-invalid
     margin: 40px auto;
 }
 
-.fc-title{
-    font-size: large;
-}
-
-.fc-widget-content {
-    height: 50px !important;
+.btn-text{
+    font-size : 10px;;
 }
