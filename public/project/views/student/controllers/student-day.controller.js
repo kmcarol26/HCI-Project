@@ -19,17 +19,8 @@
             vm.minTime = "10:00:00";
             vm.maxTime = "15:00:00";
 
-
             if(vm.uid == -1) {
-                $rootScope.events.push({
-                    start: '2018-11-22T10:00:00',
-                    end: '2018-11-22T11:00:00',
-                    color: 'black',
-                    editable: false,
-                    rendering: 'background',
-                    public: false
-                });
-
+                $rootScope.events=[];
                 $rootScope.events.push({
                     title: "File Upload Issue",
                     start: '2018-11-22T12:00:00',
@@ -41,10 +32,10 @@
             }
 
 
-            console.log($rootScope.events);
             $('#calendar').fullCalendar({
                 allDaySlot:false,
                 height:610,
+                slotDuration:'00:05:00',
                 defaultDate: "2018-11-22",
                 defaultView: 'agendaDay',
                 selectable: true,
@@ -94,7 +85,6 @@
         }
 
         function findQuestions(term){
-            console.log('here');
             $('a.fc-time-grid-event.fc-v-event.fc-event.fc-start.fc-end').css({"border-color": "red", "border-width": "thick"});
         }
     }

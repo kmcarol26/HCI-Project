@@ -3,9 +3,10 @@
         .module("TOHMS")
         .controller("studentCalendarController", studentCalendarController);
 
-    function studentCalendarController($scope, $location) {
+    function studentCalendarController($scope,$rootScope,$location) {
         var vm = this;
         vm.taNames = ["Tweety", "Sylvester"];
+
 
         $(function() {
             $('#calendar').fullCalendar({
@@ -23,10 +24,8 @@
                         start  : '2018-11-02T12:00:00',
                         end    :   '2018-11-02T15:00:00',
                         allDay :false,
-                        url:'/#/bookpublic',
+                        url:'#/studentday/-1',
                         weekends: false
-
-
                     }
 
                 ],
@@ -37,11 +36,8 @@
                         return false;
                     }
                 }
-
-
             })
         });
-
     }
 
 })();
