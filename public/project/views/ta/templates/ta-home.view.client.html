@@ -12,9 +12,9 @@
         </div>
     </div>
 </nav>
-<div class="container">
+<div class="w3-container">
     <br/>
-    <h3>Courses where you are :
+    <h3 class="heading1">Courses where you are :
         <select ng-model="user">
             <option ng-repeat="userType in model.userTypes">{{userType}}</option>
         </select>
@@ -25,7 +25,7 @@
 
     <div ng-show="user == 'Teaching Assistant'">
 
-        <h2><u>Check TA Office hours for :</u>
+        <h2 >Check TA Office hours for :</h2>
 
             <br/>
             <br/>
@@ -36,7 +36,7 @@
                 <li><h3><a href ="#/tacalendar"> CS6400 - DataMining Techniques </a></h3></li>
             </ul>
 
-        </h2>
+
     </div>
 
     <div ng-show="user == 'Student'" class="alert alert-danger" role="alert">
