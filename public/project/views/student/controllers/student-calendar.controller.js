@@ -26,8 +26,8 @@
                     {
                         id:'1',
                         title  : 'CS5200 Office Hours',
-                        start  : '2018-11-02T11:00:00',
-                        end    :  '2018-11-02T13:00:00',
+                        start  : '2018-11-22T11:00:00',
+                        end    :  '2018-11-22T13:00:00',
                         allDay :false,
                         url:'#/studentday/-1'
 
