@@ -7,9 +7,8 @@
         var vm = this;
         vm.openPublicAppointment = openPublicAppointment;
         vm.openPrivateAppointment=openPrivateAppointment;
+        vm.findQuestions=findQuestions;
         vm.uid = $routeParams['uid'];
-
-
 
 
         function init() {
@@ -45,6 +44,7 @@
             console.log($rootScope.events);
             $('#calendar').fullCalendar({
                 allDaySlot:false,
+                height:610,
                 defaultDate: "2018-11-22",
                 defaultView: 'agendaDay',
                 selectable: true,
@@ -91,6 +91,11 @@
             $rootScope.privateEvent = event;
             $location.url('/bookprivate/');
             $scope.$apply();
+        }
+
+        function findQuestions(term){
+            console.log('here');
+            $('a.fc-time-grid-event.fc-v-event.fc-event.fc-start.fc-end').css({"border-color": "red", "border-width": "thick"});
         }
     }
 
