@@ -1,0 +1,139 @@
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-text pull-right">
+            <a class="btn btn-lg"><i class="glyphicon glyphicon-home"></i></a>
+        </div>
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#/home">
+                <b class="nv-text pull-right"><h2>TOHMS</h2></b>
+            </a>
+        </div>
+    </div>
+</nav>
+
+<div class="container-fluid">
+
+    <form name="privateForm" ng-class="{submitted:privateForm.submitted}">
+
+        <h2>Confirm Details for new appointment : </h2>
+
+        <div class="alert alert-success" ng-show="model.message">
+            {{model.message}}
+        </div>
+
+
+
+        <h3>Question details :</h3>
+        <div class="form-group">
+            <div class="drop">
+                <h4 class="astr">Category: </h4>
+                <input type="text" value="HW-1" class="field left" readonly>
+            </div>
+
+            <h4 class="astr">Summary: </h4>
+
+            <textarea rows="4" cols="50" readonly value="helo" class="form-control"
+
+                      rows="3" cols="3">
+File Upload Issue
+</textarea>
+
+            </h4>
+
+            <h4>Description: </h4>
+
+            <textarea rows="4" cols="50" readonly value="helo" class="form-control"
+
+                      rows="3" cols="3">
+I'm unable to upload my assignment to Blackboards
+</textarea>
+
+            <div class=" form-group">
+                <h4 class="astr">Confirm Selected Slot:
+                    <i data-toggle="tooltip" data-placement="right" title="You can reduce the duration of your timeslot here.
+Book time for upto 20 minutes within the available range specified below." class="fa fa-question-circle"></i></h4>
+
+
+                Question of design heuristics
+
+                <input type="text" value="12:00" class="field left" readonly>
+
+                </span>
+
+
+                -
+
+                <input type="text" value="12:15" class="field left" readonly>
+
+                </span>
+
+
+                <span ng-if="(model.appointment.endTime - model.appointment.startTime)/60000 > 0">
+               <i> {{(model.appointment.endTime - model.appointment.startTime)/60000}} mins </i>
+            </span>
+
+            </div>
+
+
+            <div class="drop form-group">
+                <h4 class="astr">Visibility :</h4>
+                <input type="text" value="Public" class="field left" readonly>
+
+                </h4>
+            </div>
+
+
+            <div class="drop form-group">
+                <h4 class="astr">Member Count :</h4>
+                <input type="text" value="3" class="field left" readonly>
+
+            </div>
+
+            <div class="drop form-group">
+                <h4>Phone Number :</h4>
+                <input type="tel" value="777-654-7665" class="field left" readonly>
+            </div>
+
+            <br/>
+
+            <div class="form-group">
+                <a class="btn btn-danger btn-md"
+                   href="#/taday/-1">
+                    OK
+                </a>
+
+
+            </div>
+
+
+            <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="confirmModal" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="pull-right btn-danger" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                            <h4 class="modal-title"> <b>Confirm Appointment?</b>
+                            </h4>
+                        </div>
+                        <div class="modal-body">
+                            <h5> <b>Date</b> : 25th October, 2018 </h5>
+                            <h5><b>Time </b>: {{model.appointment.startTime.getHours()}}:{{model.appointment.startTime.getMinutes()}}
+                                PM - {{model.appointment.endTime.getHours()}}:{{model.appointment.endTime.getMinutes()}} PM </h5>
+                            <h5><b>Teaching Assistant </b>: Tweety</h5>
+                            <h5><b>Appointment Type</b> : {{appointment.visibility}} </h5>
+                            <h5><b>Member Count</b> : {{model.appointment.membercount}}</h5>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                    ng-click="model.confirmAppointment(appointment)">Confirm</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </form>
+</div>
+
