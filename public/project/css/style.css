@@ -36,3 +36,6 @@ form.submitted .ng-invalid
     font-size : 10px;;
 }
 
+.popover {
+    font-size: small;
+}
