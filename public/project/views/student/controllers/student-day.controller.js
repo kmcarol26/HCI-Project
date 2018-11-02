@@ -51,6 +51,7 @@
             $('#calendar').fullCalendar({
                 allDaySlot:false,
                 height:600,
+                selectOverlap: false,
                 slotDuration:'00:05:00',
                 defaultDate: "2018-11-22",
                 defaultView: 'agendaDay',
@@ -90,7 +91,7 @@
                     else
                         $el.popover({
                             title: "Private Appointment",
-                            content: "This appointment is only visible to you",
+                            content: "This appointment is visible only to you",
                             trigger: 'hover',
                             placement: 'top',
                             container: 'body'
@@ -111,6 +112,8 @@
 
                     vm.openPrivateAppointment(startDate._d, endDate._d);
                 }
+
+
             });
 
 
@@ -118,6 +121,8 @@
             var $input = $('<button class="btn btn-warning btn-sm">HW1</button>');
             var $e = $('a.fc-time-grid-event.fc-v-event.fc-event.fc-start.fc-end');
             $input.appendTo($e);
+
+            $('[data-toggle="tooltip"]').tooltip();
 
         }
         init();
