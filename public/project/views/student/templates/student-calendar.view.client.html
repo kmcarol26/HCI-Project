@@ -11,8 +11,15 @@
     </div>
 </nav>
 
+
 <div class="container">
-
+    <h2>Office Hours Weekly Schedule for CS5200 - Database Management Systems</h2>
+    <br/>
+    <h3>Select the Teaching Assistant:
+        <select ng-model="ta">
+            <option ng-repeat="taName in model.taNames">{{taName}}</option>
+        </select></h3>
+<br/>
     <div id='calendar'></div>
-
 </div>
+
