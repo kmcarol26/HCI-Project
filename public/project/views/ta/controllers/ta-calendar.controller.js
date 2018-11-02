@@ -11,6 +11,7 @@
 
         $(function() {
             $('#calendar').fullCalendar({
+                height:520,
                 defaultView: 'agendaWeek',
                 minTime:'9:00:00',
                 maxTime:'18:00:00',
