@@ -29,7 +29,6 @@ form.submitted .ng-invalid
 }
 
 #calendar {
-    max-width: 900px;
     margin: 40px auto;
 }
 
