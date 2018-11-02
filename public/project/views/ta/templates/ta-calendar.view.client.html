@@ -12,14 +12,43 @@
 </nav>
 
 
-<div class="container">
+<div class="container" ng-init="tab='appt'">
     <h2>Office Hours Weekly Schedule for CS5200 - Database Management Systems</h2>
     <br/>
 
     <br/>
-    <div id='calendar'>
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" ng-class="{'active':tab=='appt'}">
+            <a class="nav-link active" ng-click = "tab='appt'" id="appointments" data-toggle="tab" data-target="#appt-div"  role="tab" aria-controls="home" aria-selected="true">Appointments</a>
+        </li>
+        <li class="nav-item" ng-class="{'active':tab=='quest'}">
+            <a class="nav-link" ng-click="tab='quest'" id="questions" data-toggle="tab" data-target=="#questions-div" role="tab" aria-controls="profile" aria-selected="false">See questions</a>
+        </li>
 
+    </ul>
+    <div class="tab-content" id="myTabContent">
+        <div ng-show="tab=='appt'" id='calendar-id' class="tab-pane active" id="appt-div" role="tabpanel" aria-labelledby="appointments">
+
+            <div  id='calendar'>
+
+
+            </div>
+        </div>
+        <div ng-show="tab=='quest'" class="tab-pane active" id="questions-div" role="tabpanel" aria-labelledby="profile-tab">
+
+
+        </div>
 
     </div>
+    <!--<div  id='calendar'>-->
+
+
+    <!--</div>-->
+    <!--<script>-->
+        <!--$(function () {-->
+            <!--$('#myTab li:last-child a').tab('show')-->
+            <!--$('#myTab').tab('show')-->
+        <!--})-->
+    <!--</script>-->
 </div>
 

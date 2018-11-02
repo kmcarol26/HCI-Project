@@ -49,6 +49,11 @@
                 controller: 'studentDayController',
                 controllerAs: 'model'
             })
+            .when("/taday/:uid", {
+                templateUrl: "views/ta/templates/ta-day.view.client.html",
+                controller: 'taDayController',
+                controllerAs: 'model'
+            })
 
 
     }
