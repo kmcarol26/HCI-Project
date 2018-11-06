@@ -2,7 +2,7 @@
 
 Course - Human Computer Interaction (CS5340) 
 
-Team Her'd
+Team : Her'd
 
 Members : Keerthi Pendyala & Monisha Carol
 
