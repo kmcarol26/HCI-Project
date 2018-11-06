@@ -16,6 +16,14 @@ Students sign up for TA hours on the application before the sessions begin. Whil
 
 The system will have an interface each for student and TA. The student will book appointments and TAs will give their availability and be able to look at student questions in advance to prepare for the upcoming sessions. 
 
+Setup:
+
+1. cd HCI-Project
+2. Open a terminal and run : npm install
+3. Run: mongod
+4. On a new terminal, cd into HCI-Project and run : node server.js
+5. To login as student - Go to localhost:3000/project/#/home . To login as TA - Go to localhost:3000/project/#/taHome . 
+
 
 References : 
 
