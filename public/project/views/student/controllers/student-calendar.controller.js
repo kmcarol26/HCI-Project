@@ -39,7 +39,7 @@
                 eventColor: '#378006',
                 eventClick: function(event) {
                     if (event.url) {
-                        window.open(event.url);
+                        location.url(event.url);
                         return false;
                     }
                 },
