@@ -45,15 +45,7 @@
                 },
                 dayClick: function(date, jsEvent, view) {
 
-                    $('#calendar').fullCalendar('renderEvent', {
-                        id: '2',
-                        title: 'CS5200 Office Hours',
-                        start: date,
-                        allDay: false,
-                        editable: true,
-                        startEditable: true,
-                        durationEditable: true
-                    }, true)
+                    alert('No office hours found at this time. Please click on a scheduled office hours session')
                 },
                 eventRender: function(eventObj, $el) {
                     if (eventObj.id != '2') {
