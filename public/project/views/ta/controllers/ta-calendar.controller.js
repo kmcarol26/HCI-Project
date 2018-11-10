@@ -20,7 +20,7 @@
                 header: {
                     left: 'prev,next today',
                     center: 'title',
-                    right: 'agendaDay'
+                    right: 'agendaWeek,agendaDay'
                 },
 
 
