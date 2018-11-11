@@ -83,22 +83,35 @@
                     else if(eventObj.rendering == 'background')
                     {
                         $el.popover({
-                            title: "Private Appointment",
-                            content: "This slot is unavailable as it was booked by someone else",
+                            title: "Unavailable time slot",
+                            content: "This slot is booked by someone else",
+                            trigger: 'hover',
+                            placement: 'top',
+                            container: 'body'
+                        });
+                    }
+                    else if((eventObj.public==false) && eventObj.id!='1' &&  eventObj.id!='2')
+                    {
+                        $el.popover({
+                            title: "Your Private Appointment",
+                            content: "This is your private appointment and is visible only to you",
                             trigger: 'hover',
                             placement: 'top',
                             container: 'body'
                         });
                     }
 
-                    else
+
+                    else if(eventObj.public && eventObj.id!='1' &&  eventObj.id!='2')
+                    {
                         $el.popover({
-                            title: "Private Appointment",
-                            content: "This appointment is visible only to you",
+                            title: "Your Public Appointment",
+                            content: "This is your public appointment and is visible to other students.",
                             trigger: 'hover',
                             placement: 'top',
                             container: 'body'
                         });
+                    }
 
                 },
 
