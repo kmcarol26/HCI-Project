@@ -6,8 +6,8 @@
     function taCalendarController($scope, $location) {
         var vm = this;
 
-
         vm.studentNames = ["Noddy", "Winnie"];
+
 
         $(function() {
             $('#calendar').fullCalendar({
@@ -41,6 +41,8 @@
                 ],
                 eventColor: '#378006',
                 eventClick: function(event) {
+                    $('.popover.in').remove();
+
                     if (event.url) {
                         location.url(event.url);
 
@@ -51,6 +53,7 @@
                     }
                 },
                 dayClick: function(date, jsEvent, view) {
+                    $('.popover.in').remove();
 
                     $('#calendar').fullCalendar('renderEvent', {
                         id: '2',
@@ -63,6 +66,7 @@
                     }, true)
                 },
                     eventRender: function(eventObj, $el) {
+                        $('.popover.in').remove();
                         if (eventObj.id != '2') {
                             $el.popover({
                                 title: eventObj.duration,

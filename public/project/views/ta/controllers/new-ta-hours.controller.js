@@ -13,6 +13,7 @@
 
 
         function init() {
+            $('.popover.in').remove();
             if(vm.uid == 1)
             {
                 vm.booked = "Appointment Booked!";
