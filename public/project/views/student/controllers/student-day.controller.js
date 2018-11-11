@@ -28,6 +28,7 @@
 
 
                 $rootScope.events.push({
+                    id:'1',
                     title: "File Upload Issue",
                     start: '2018-11-22T12:00:00',
                     end: '2018-11-22T12:20:00',
@@ -37,6 +38,7 @@
                     selectable : false
                 });
                 $rootScope.events.push({
+                    id:'2',
                     start: '2018-11-22T11:05:00',
                     end: '2018-11-22T11:15:00',
                     color: 'black',
@@ -69,7 +71,7 @@
                 maxTime : vm.maxTime,
 
                 eventRender: function(eventObj, $el) {
-                    if(eventObj.public)
+                    if(eventObj.public && (eventObj.id=='1' ||  eventObj.id=='2'))
                     $el.popover({
                         title: "Public Appointment",
                         content: "Click on this slot to join a group appointment for the question.",
