@@ -26,13 +26,12 @@
             if(vm.uid == -1) {
                 $rootScope.events=[];
 
-
                 $rootScope.events.push({
                     id:'1',
                     title: "File Upload Issue",
                     start: '2018-11-22T12:00:00',
                     end: '2018-11-22T12:20:00',
-                    color: 'darkcyan',
+                    color: 'royalblue',
                     editable: false,
                     public: true,
                     selectable : false

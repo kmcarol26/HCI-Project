@@ -35,11 +35,13 @@
         function confirmAppointment(appointment) {
             var p;
             if(appointment.visibility == "Public") {
-                appointment.color = 'darkcyan';
+                appointment.color = 'darkorange';
+                appointment.borderColor= 'black';
                 p = true;
             }
             else {
-                appointment.color = 'darkblue';
+                appointment.color = 'tomato';
+                appointment.borderColor= 'black';
                 p = false;
             }
             $(".modal-backdrop").remove();
