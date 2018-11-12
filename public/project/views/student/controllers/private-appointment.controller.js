@@ -36,12 +36,10 @@
             var p;
             if(appointment.visibility == "Public") {
                 appointment.color = 'darkorange';
-                appointment.borderColor= 'black';
                 p = true;
             }
             else {
                 appointment.color = 'tomato';
-                appointment.borderColor= 'black';
                 p = false;
             }
             $(".modal-backdrop").remove();
