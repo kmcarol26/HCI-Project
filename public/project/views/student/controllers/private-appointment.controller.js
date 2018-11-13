@@ -36,6 +36,7 @@
             var p;
             if(appointment.visibility == "Public") {
                 appointment.color = 'dodgerblue';
+
                 p = true;
             }
             else {

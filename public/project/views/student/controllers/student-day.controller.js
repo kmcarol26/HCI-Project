@@ -32,7 +32,6 @@
             if(vm.uid == -1) {
                 $rootScope.events=[];
 
-
                 $rootScope.events.push({
                     id:'1',
                     summary: "File Upload Issue",
