@@ -10,9 +10,15 @@
         vm.findQuestions=findQuestions;
         vm.uid = $routeParams['uid'];
 
+        vm.showCalendar = showCalendar;
+        vm.showAllAppointments = showAllAppointments;
+        vm.showMyBookedAppointments=showMyBookedAppointments;
+        vm.showAllGroupAppointments = showAllGroupAppointments;
+
 
         function init() {
             $('.popover.in').remove();
+
             if(vm.uid == 1)
             {
                 vm.booked = "Appointment Booked!";
@@ -28,10 +34,11 @@
 
                 $rootScope.events.push({
                     id:'1',
-                    title: "File Upload Issue",
+                    summary: "File Upload Issue",
+                    category:'HW1',
                     start: '2018-11-22T12:00:00',
                     end: '2018-11-22T12:20:00',
-                    color: 'royalblue',
+                    color: 'dodgerblue',
                     editable: false,
                     public: true,
                     selectable : false
@@ -48,8 +55,12 @@
                 });
 
             }
+            vm.showCalendar($rootScope.events);
 
+        }
+        init();
 
+        function showCalendar(events){
             $('#calendar').fullCalendar({
                 allDaySlot:false,
                 height:600,
@@ -65,19 +76,22 @@
                     center: 'title',
                     right: 'agendaDay'
                 },
-                events : $rootScope.events,
+                events : events,
                 minTime : vm.minTime,
                 maxTime : vm.maxTime,
 
                 eventRender: function(eventObj, $el) {
-                    if(eventObj.public && (eventObj.id=='1' ||  eventObj.id=='2'))
-                    $el.popover({
-                        title: "Public Appointment",
-                        content: "Click on this slot to join a group appointment for the question.",
-                        trigger: 'hover',
-                        placement: 'top',
-                        container: 'body'
-                    });
+
+                    if(eventObj.public && (eventObj.id=='1' ||  eventObj.id=='2')) {
+                        $el.html('<button class="btn btn-warning btn-sm disabled" tabindex="-1" aria-disabled="true" " >'+eventObj.category+'</button> <b>'+eventObj.summary+'</b>');
+                        $el.popover({
+                            title: "Public Appointment",
+                            content: "Click on this slot to join a group appointment for the question.",
+                            trigger: 'hover',
+                            placement: 'top',
+                            container: 'body'
+                        });
+                    }
 
                     else if(eventObj.rendering == 'background')
                     {
@@ -91,6 +105,7 @@
                     }
                     else if((eventObj.public==false) && eventObj.id!='1' &&  eventObj.id!='2')
                     {
+                        $el.html('<button class="btn btn-warning btn-sm disabled" tabindex="-1" aria-disabled="true" " >'+eventObj.category+'</button> <b>'+eventObj.summary+'</b>');
                         $el.popover({
                             title: "Your Private Appointment",
                             content: "This is your private appointment and is visible only to you",
@@ -103,6 +118,7 @@
 
                     else if(eventObj.public && eventObj.id!='1' &&  eventObj.id!='2')
                     {
+                        $el.html('<button class="btn btn-warning btn-sm disabled" tabindex="-1" aria-disabled="true" " >'+eventObj.category+'</button> <b>'+eventObj.summary+'</b>');
                         $el.popover({
                             title: "Your Public Appointment",
                             content: "This is your public appointment and is visible to other students.",
@@ -121,9 +137,6 @@
 
                 },
                 select: function(startDate, endDate) {
-                    console.log(vm.sd);
-                    console.log(vm.ed);
-                    console.log(startDate._d);
 
                     vm.openPrivateAppointment(startDate._d, endDate._d);
                 }
@@ -131,16 +144,12 @@
 
             });
 
-
-
-            var $input = $('<button class="btn btn-warning btn-sm">HW1</button>');
-            var $e = $('a.fc-time-grid-event.fc-v-event.fc-event.fc-start.fc-end');
-            $input.appendTo($e);
+            // var $input = $('<button class="btn btn-warning btn-sm">HW1</button>');
+            // var $e = $('a.fc-time-grid-event.fc-v-event.fc-event.fc-start.fc-end');
+            // $input.appendTo($e);
 
             $('[data-toggle="tooltip"]').tooltip();
-
         }
-        init();
 
 
         function openPublicAppointment(event){
@@ -161,6 +170,47 @@
 
         function findQuestions(term){
             $('a.fc-time-grid-event.fc-v-event.fc-event.fc-start.fc-end').css({"border-color": "red", "border-width": "thick"});
+        }
+
+        function showMyBookedAppointments(){
+            var myAppointments =[];
+
+            var events = $rootScope.events;
+            for (var i = 0; i < events.length; i++) {
+
+                if (events[i].id != '1' && events[i].id !='2'){
+                    myAppointments.push(events[i]);
+                }
+            }
+
+            $('#calendar').fullCalendar('removeEvents');
+            $('#calendar').fullCalendar('addEventSource', myAppointments )
+
+        }
+
+        function showAllGroupAppointments(){
+            var groupAppointments=[]
+            var events = $rootScope.events;
+            for (var i = 0; i < events.length; i++) {
+
+                if (events[i].public == true){
+                    groupAppointments.push(events[i]);
+                }
+            }
+
+            $('#calendar').fullCalendar('removeEvents');
+            $('#calendar').fullCalendar('addEventSource', groupAppointments )
+
+
+        }
+        function showAllAppointments(){
+            var events = $rootScope.events;
+            $('#calendar').fullCalendar('removeEvents');
+            $('#calendar').fullCalendar('addEventSource', events )
+
+
+            $('[data-toggle="tooltip"]').tooltip();
+
         }
     }
 
