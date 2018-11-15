@@ -9,8 +9,6 @@
         vm.openPrivateAppointment=openPrivateAppointment;
         vm.findQuestions=findQuestions;
         vm.uid = $routeParams['uid'];
-
-        vm.showCalendar = showCalendar;
         vm.showAllAppointments = showAllAppointments;
         vm.showMyBookedAppointments=showMyBookedAppointments;
         vm.showAllGroupAppointments = showAllGroupAppointments;
@@ -55,12 +53,6 @@
                 });
 
             }
-            vm.showCalendar($rootScope.events);
-
-        }
-        init();
-
-        function showCalendar(events){
             $('#calendar').fullCalendar({
                 allDaySlot:false,
                 height:600,
@@ -76,7 +68,7 @@
                     center: 'title',
                     right: 'agendaDay'
                 },
-                events : events,
+                events : $rootScope.events,
                 minTime : vm.minTime,
                 maxTime : vm.maxTime,
 
@@ -149,8 +141,9 @@
             // $input.appendTo($e);
 
             $('[data-toggle="tooltip"]').tooltip();
-        }
 
+        }
+        init();
 
         function openPublicAppointment(event){
             event.category = "HW1";
