@@ -68,6 +68,10 @@
                     eventRender: function(eventObj, $el) {
                         $('.popover.in').remove();
                         if (eventObj.id != '2') {
+                            $el.html('<a href style="padding-left:0px; font-size: 1.2em;"class="glyphicon glyphicon-remove"></a>');
+                            $el.html('<a href style="padding-left:100px; font-size: 1.2em;"class="glyphicon glyphicon-remove"></a>');
+
+
                             $el.popover({
                                 title: eventObj.duration,
                                 content: "Click to see the full schedule",
@@ -75,10 +79,13 @@
                                 placement: 'top',
                                 container: 'body'
                             });
-
                         }
+
+
                         else{
+                            $el.html('<a href style="padding-left:0px; font-size: 1.2em;"class="glyphicon glyphicon-remove"></a>');
                             $el.popover({
+
                                 title: eventObj.duration,
                                 content: "Drag to adjust the time",
                                 trigger: 'hover',
