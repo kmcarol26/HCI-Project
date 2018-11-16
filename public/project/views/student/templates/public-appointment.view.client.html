@@ -49,11 +49,11 @@
                 <h4>Time Slot:</h4>
                 </div>
 
-               {{model.appointment.startTime}}
+               {{model.appointment.startTime | date : "shortTime"}}
 
                 -
 
-               {{model.appointment.endTime}}
+               {{model.appointment.endTime | date : "shortTime"}}
 
         <i>{{(model.appointment.endTime - model.appointment.startTime)/60000}} mins</i>
 
@@ -64,18 +64,6 @@
 
             </div>
 
-
-            <div class="drop form-group">
-                <h4 class="astr">Member Count :</h4>
-                <input ng-model="appointment.additionalmembers"
-                       name="additionalmembers"
-                       type="number"
-                       size="4"
-                       required/>
-                <span class="text-error"
-                      data-ng-show="privateForm.submitted && privateForm.membercount.$error.required">
-                </span>
-            </div>
 
             <div class="drop form-group">
                 <h4>Phone Number :</h4>

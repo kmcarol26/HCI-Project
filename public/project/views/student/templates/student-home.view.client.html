@@ -15,16 +15,16 @@
 
 <div class="container">
     <br/>
-    <h3>Courses where you are :
-    <select ng-model="user">
-        <option ng-repeat="userType in model.userTypes">{{userType}}</option>
-    </select>
+    <h3>Courses where you are Student :
+    <!--<select ng-model="user">-->
+        <!--<option ng-repeat="userType in model.userTypes">{{userType}}</option>-->
+    <!--</select>-->
     </h3>
 
     <br/>
     <br/>
 
-    <div ng-show="user == 'Student'">
+    <!--<div ng-show="user == 'Student'">-->
 
         <h2><u>Check TA Office hours for :</u>
 
@@ -38,11 +38,17 @@
         </ul>
 
         </h2>
-    </div>
+    <!--</div>-->
 
-    <div ng-show="user == 'Teaching Assistant'" class="alert alert-danger" role="alert">
-        No Courses Found!
-    </div>
+    <!--<h3>Courses where you are Teaching Assistant :-->
+        <!--&lt;!&ndash;<select ng-model="user">&ndash;&gt;-->
+        <!--&lt;!&ndash;<option ng-repeat="userType in model.userTypes">{{userType}}</option>&ndash;&gt;-->
+        <!--&lt;!&ndash;</select>&ndash;&gt;-->
+    <!--</h3>-->
+    <!---->
+    <!--<div ng-show="user == 'Teaching Assistant'" class="alert alert-danger" role="alert">-->
+        <!--No Courses Found!-->
+    <!--</div>-->
 
 
     <div id='calendar'></div>
