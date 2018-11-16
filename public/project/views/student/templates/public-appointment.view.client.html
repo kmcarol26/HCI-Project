@@ -49,15 +49,11 @@
                 <h4>Time Slot:</h4>
                 </div>
 
-               <time datetime="model.appointment.startTime"></time>
-
-
-
-        {{ model.appointment.startTime | date:'hh:mm' }}
+               {{model.appointment.startTime | date}}
 
                 -
 
-        <time datetime="model.appointment.endTime"></time>
+               {{model.appointment.endTime}}
 
         <i>{{(model.appointment.endTime - model.appointment.startTime)/60000}} mins</i>
 
