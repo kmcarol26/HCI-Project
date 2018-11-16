@@ -38,46 +38,30 @@
 
         <div class="form-group">
             <h4>Summary:
-            <textarea readonly
-                    ng-model="model.appointment.summary"
-                    class="form-control"
-                    rows="1" cols="2">
-                </textarea>
+            {{model.appointment.summary}}
             </h4>
         </div>
 
             <h4>Description: </h4>
-            <textarea readonly
-                    ng-model="model.appointment.description"
-                    class="form-control"
-                    rows="3" cols="3">
-            </textarea>
+            {{model.appointment.description}}
 
             <div class="form-group">
                 <h4>Time Slot:</h4>
                 </div>
 
-                <input ng-model="model.appointment.startTime"
-                       name="startTime"
-                       type="time"
-                       readonly/>
+               {{model.appointment.startTime}}
 
                 -
 
-                <input ng-model="model.appointment.endTime"
-                       name="endTime"
-                       type="time"
-                       readonly/>
+               {{model.appointment.endTime}}
 
         <i>{{(model.appointment.endTime - model.appointment.startTime)/60000}} mins</i>
 
             <div class="form-group">
                 <h4>Members Registered: </h4>
 
-            <input ng-model="model.appointment.membercount"
-                   name="membercount"
-                   type="text"
-                   readonly/>
+            {{model.appointment.membercount}}
+
             </div>
 
 
