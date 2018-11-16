@@ -32,8 +32,44 @@
     <div class="tab-content" id="myTabContent">
         <div ng-show="tab=='appt'" id='calendar-id' class="tab-pane active" id="appt-div" role="tabpanel" aria-labelledby="appointments">
 
-            <div  id='calendar'>
+            <div class="row">
 
+                <div id='index-view' class="index col-md-2">
+                    <b>Index:</b>
+                    <div class="row">
+                        <div class="group-index col-md-2"></div>
+                        <div class="col-md-10"><b>Group Appointment</b></div>
+                    </div>
+                    <br/>
+                    <div class="row">
+                        <div class="private-index col-md-2"></div>
+                        <div class="col-md-10"><b>Private Appointment</b></div>
+                    </div>
+                </div>
+
+                <div class="col-md-8">
+
+                    </br>
+
+                    <div class="input-group text-search">
+
+                        <input ng-model="searchTerm" type="text" class="form-control" placeholder="Search for questions.."/>
+                        <span class="input-group-addon">
+            <a>
+               <i ng-click="model.findQuestions(searchTerm)" class="fa fa-search"></i>
+            </a></span>
+                    </div>
+
+                    <br/>
+                    <nav class=" filter nav navbar-default">
+                        <b style="font-size: 20px;">Show </b>
+
+                        <button type="button" class="btn btn-success btn-md"  ng-click="model.showAllAppointments()" >All appointments</button>
+                        <button type="button" class="btn btn-success btn-md "  ng-click="model.showMyBookedAppointments()" >Group appointments</button>
+                        <button type="button" class="btn btn-success btn-md"  ng-click="model.showAllGroupAppointments()" >Private Appointments</button>
+                    </nav>
+                    <div id='calendar' class="cal-bg " ></div>
+                </div>
 
             </div>
         </div>
