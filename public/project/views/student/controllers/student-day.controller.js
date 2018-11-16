@@ -97,7 +97,7 @@
                     }
                     else if((eventObj.public==false) && eventObj.id!='1' &&  eventObj.id!='2')
                     {
-                        $el.html('<button class="btn btn-warning btn-sm disabled" tabindex="-1" aria-disabled="true" " >'+eventObj.category+'</button> <b>'+eventObj.summary+'</b>');
+                        $el.html('<button class="btn btn-warning btn-sm disabled" tabindex="-1" aria-disabled="true" " >'+eventObj.category+'</button> <b>'+eventObj.summary+'</b> <a href style="padding-left:540px; font-size: 1.2em;"class="glyphicon glyphicon-remove"></a>');
                         $el.popover({
                             title: "Your Private Appointment",
                             content: "This is your private appointment and is visible only to you",
@@ -110,7 +110,7 @@
 
                     else if(eventObj.public && eventObj.id!='1' &&  eventObj.id!='2')
                     {
-                        $el.html('<button class="btn btn-warning btn-sm disabled" tabindex="-1" aria-disabled="true" " >'+eventObj.category+'</button> <b>'+eventObj.summary+'</b>');
+                        $el.html('<button class="btn btn-warning btn-sm disabled" tabindex="-1" aria-disabled="true" " >'+eventObj.category+'</button> <b>'+eventObj.summary+'</b> <a href style="padding-left:540px; font-size: 1.2em;"class="glyphicon glyphicon-remove"></a>');
                         $el.popover({
                             title: "Your Public Appointment",
                             content: "This is your public appointment and is visible to other students.",
@@ -200,8 +200,6 @@
             var events = $rootScope.events;
             $('#calendar').fullCalendar('removeEvents');
             $('#calendar').fullCalendar('addEventSource', events )
-
-
             $('[data-toggle="tooltip"]').tooltip();
 
         }

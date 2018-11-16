@@ -31,7 +31,7 @@
                     title: "File Upload Issue",
                     start: '2018-11-22T12:00:00',
                     end: '2018-11-22T12:20:00',
-                    color: 'darkcyan',
+                    color: 'dodgerblue',
                     editable: false,
                     public: true,
                     selectable : false
@@ -41,7 +41,7 @@
                     start: '2018-11-22T11:00:00',
                     end: '2018-11-22T11:15:00',
                     editable: false,
-                    color: 'darkcyan',
+                    color: 'tomato',
                     public: false,
 
 
