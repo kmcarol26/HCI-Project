@@ -86,6 +86,27 @@
                     <button type="button" class="btn btn-success btn-md "  ng-click="model.showAllGroupAppointments()" >All Group Appointments</button>
                     </nav>
                     <div id='calendar' class="cal-bg " ></div>
+                         <div class="modal fade" id="confirmCancelModal" tabindex="-1" role="dialog" aria-labelledby="confirmModal" aria-hidden="true">
+                             <div class="modal-dialog" role="document">
+                                 <div class="modal-content">
+                                     <div class="modal-header">
+                                         <button type="button" class="pull-right btn-danger" data-dismiss="modal" aria-label="Close">
+                                             <span aria-hidden="true">&times;</span>
+                                         </button>
+                                         <h4 class="modal-title"> <b>Cancel Appointment?</b>
+                                         </h4>
+                                     </div>
+                                     <div class="modal-body">
+                                         <h5> <b>Date</b> Are you sure you want to cancel your appointment on 22 November, 2018 from {{model.clickedStartTime}} to {{model.clickedEndTime}} </h5>
+                                     </div>
+                                     <div class="modal-footer">
+                                         <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                         <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                                 ng-click="model.cancelAppointment( )">Confirm</button>
+                                     </div>
+                                 </div>
+                             </div>
+                         </div>
                      </div>
 
                  </div>

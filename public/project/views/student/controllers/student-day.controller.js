@@ -12,15 +12,20 @@
         vm.showAllAppointments = showAllAppointments;
         vm.showMyBookedAppointments=showMyBookedAppointments;
         vm.showAllGroupAppointments = showAllGroupAppointments;
+        vm.editAppointment = editAppointment;
+        vm.cancelAppointment = cancelAppointment;
+        vm.cancelAppointmentModal = cancelAppointmentModal;
+
 
 
         function init() {
+
             $('.popover.in').remove();
 
-            if(vm.uid == 1)
-            {
-                vm.booked = "Appointment Booked!";
-            }
+            // if(vm.uid == 1)
+            // {
+            //     vm.booked = "Appointment Booked!";
+            // }
             vm.minTime = "11:00:00";
             vm.maxTime = "13:00:00";
             vm.ed = '2018-11-22T12:20:00';
@@ -77,7 +82,7 @@
                     if(eventObj.public && (eventObj.id=='1' ||  eventObj.id=='2')) {
                         $el.html('<button class="btn btn-warning btn-sm disabled" tabindex="-1" aria-disabled="true" " >'+eventObj.category+'</button> <b>'+eventObj.summary+'</b>');
                         $el.popover({
-                            title: "Public Appointment",
+                            title: "Group Appointment",
                             content: "Click on this slot to join a group appointment for the question.",
                             trigger: 'hover',
                             placement: 'top',
@@ -97,7 +102,8 @@
                     }
                     else if((eventObj.public==false) && eventObj.id!='1' &&  eventObj.id!='2')
                     {
-                        $el.html('<button class="btn btn-warning btn-sm disabled" tabindex="-1" aria-disabled="true" " >'+eventObj.category+'</button> <b>'+eventObj.summary+'</b> <a href style="padding-left:540px; font-size: 1.2em;"class="glyphicon glyphicon-remove"></a>');
+                        $el.html('<button class="btn btn-warning btn-sm disabled" tabindex="-1" aria-disabled="true" " >'+eventObj.category+'</button> <b>'+eventObj.summary+'</b>  <button style="margin-left:525px" class="btn btn-warning btn-sm" >Cancel</button>');
+
                         $el.popover({
                             title: "Your Private Appointment",
                             content: "This is your private appointment and is visible only to you",
@@ -110,10 +116,10 @@
 
                     else if(eventObj.public && eventObj.id!='1' &&  eventObj.id!='2')
                     {
-                        $el.html('<button class="btn btn-warning btn-sm disabled" tabindex="-1" aria-disabled="true" " >'+eventObj.category+'</button> <b>'+eventObj.summary+'</b> <a href style="padding-left:540px; font-size: 1.2em;"class="glyphicon glyphicon-remove"></a>');
+                        $el.html('<button class="btn btn-warning btn-sm disabled" tabindex="-1" aria-disabled="true" " >'+eventObj.category+'</button> <b>'+eventObj.summary+'</b> <button style="margin-left:525px" class="btn btn-warning btn-sm" >Cancel</button> ');
                         $el.popover({
-                            title: "Your Public Appointment",
-                            content: "This is your public appointment and is visible to other students.",
+                            title: "Your Group Appointment",
+                            content: "This is your group appointment and is visible to other students.",
                             trigger: 'hover',
                             placement: 'top',
                             container: 'body'
@@ -123,9 +129,20 @@
                 },
 
                 eventClick: function(event, jsEvent, view) {
+                    vm.clickedEvent = event;
+                    console.log(event);
+                    vm.clickedStartTime = event.start._i;
+                    vm.clickedEndTime = event._i;
 
                     if(event.public)
                         vm.openPublicAppointment(event);
+                    if(jsEvent.target.nodeName == 'BUTTON'){
+                        vm.cancelAppointmentModal(event)
+                    }
+                    if(event.id!='1' && event.id!='2' && jsEvent.target.nodeName != 'BUTTON')
+                        vm.editAppointment(event);
+                    // console.log(jsEvent.target.nodeName);
+
 
                 },
                 select: function(startDate, endDate) {
@@ -136,15 +153,23 @@
 
             });
 
-            // var $input = $('<button class="btn btn-warning btn-sm">HW1</button>');
-            // var $e = $('a.fc-time-grid-event.fc-v-event.fc-event.fc-start.fc-end');
-            // $input.appendTo($e);
+                // var $input = $('<button class="btn btn-warning btn-sm">HW1</button>');
+                // var $e = $('a.fc-time-grid-event.fc-v-event.fc-event.fc-start.fc-end');
+                // $input.appendTo($e);
 
             $('[data-toggle="tooltip"]').tooltip();
 
         }
         init();
 
+        function cancelAppointmentModal(event){
+            $( "#confirmCancelModal" ).modal('show');
+        }
+
+        function cancelAppointment(){
+            $('#calendar').fullCalendar('removeEvents', vm.clickedEvent._id)
+            vm.booked = "Appointment cancelled!"
+        }
         function openPublicAppointment(event){
             event.category = "HW1";
             event.description = "Unable to upload output jar files to remote repository. Could you explain the procedure?" +
@@ -152,6 +177,14 @@
             $rootScope.publicEvent = event;
             $location.url('/bookpublic/');
             $scope.$apply();
+        }
+
+        function editAppointment(event){
+            console.log("editApp");
+            $rootScope.editEvent = event;
+            $location.url('/editAppointment/');
+            $scope.$apply();
+
         }
 
         function openPrivateAppointment(s,e){

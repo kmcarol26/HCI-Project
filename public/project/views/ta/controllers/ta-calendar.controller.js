@@ -68,8 +68,9 @@
                     eventRender: function(eventObj, $el) {
                         $('.popover.in').remove();
                         if (eventObj.id != '2') {
-                            $el.html('<a href style="padding-left:0px; font-size: 1.2em;"class="glyphicon glyphicon-remove"></a>');
-                            $el.html('<a href style="padding-left:100px; font-size: 1.2em;"class="glyphicon glyphicon-remove"></a>');
+                            console.log($el)
+                            // $el.html('<a href style="padding-left:0px; font-size: 1.2em;"class="glyphicon glyphicon-remove"></a>');
+                            // $el.html('<a href style="padding-left:100px; font-size: 1.2em;"class="glyphicon glyphicon-remove"></a>');
 
 
                             $el.popover({
@@ -83,7 +84,7 @@
 
 
                         else{
-                            $el.html('<a href style="padding-left:0px; font-size: 1.2em;"class="glyphicon glyphicon-remove"></a>');
+                            // $el.html('<a href style="padding-left:0px; font-size: 1.2em;"class="glyphicon glyphicon-remove"></a>');
                             $el.popover({
 
                                 title: eventObj.duration,

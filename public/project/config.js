@@ -80,6 +80,11 @@
                 controller: 'newHoursDayController',
                 controllerAs: 'model'
             })
+            .when("/editAppointment/", {
+                templateUrl: "views/student/templates/edit-appointment.view.client.html",
+                controller: 'editAppointmentController',
+                controllerAs: 'model'
+            })
 
 
 
