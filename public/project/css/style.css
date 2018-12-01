@@ -131,4 +131,9 @@ a:visited {
     padding-top: 200px;
 }
 
+.heading{
+    font-size: 30px;
+    font-family: 'Fjalla One', sans-serif;
+}
+
 /* Non-Demo Styles */

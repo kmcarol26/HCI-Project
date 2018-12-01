@@ -86,8 +86,5 @@
                 controllerAs: 'model'
             })
 
-
-
-
     }
 })();
