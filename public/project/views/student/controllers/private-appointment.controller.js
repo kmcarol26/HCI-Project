@@ -55,6 +55,7 @@
                 public:p
             });
             $location.url('/studentday/1');
+
             vm.message = "Appointment Booked";
             vm.error="";
         }
