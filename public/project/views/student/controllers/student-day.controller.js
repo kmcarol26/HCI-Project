@@ -21,6 +21,7 @@
         function init() {
 
             $('.popover.in').remove();
+            $rootScope.count +=1;
 
             // if(vm.uid == 1)
             // {
@@ -114,7 +115,7 @@
                     }
 
 
-                    else if(eventObj.public && eventObj.id!='1' &&  eventObj.id!='2')
+                    else if(eventObj.public == true && eventObj.id!='1' &&  eventObj.id!='2')
                     {
                         $el.html('<button class="btn btn-warning btn-sm disabled" tabindex="-1" aria-disabled="true" " >'+eventObj.category+'</button> <b>'+eventObj.summary+'</b> <button style="margin-left:525px" class="btn btn-warning btn-sm" >Cancel</button> ');
                         $el.popover({
@@ -134,14 +135,16 @@
                     vm.clickedStartTime = event.start._i;
                     vm.clickedEndTime = event._i;
 
-                    if(event.public)
-                        vm.openPublicAppointment(event);
+
                     if(jsEvent.target.nodeName == 'BUTTON'){
                         vm.cancelAppointmentModal(event)
                     }
                     if(event.id!='1' && event.id!='2' && jsEvent.target.nodeName != 'BUTTON')
                         vm.editAppointment(event);
+
                     // console.log(jsEvent.target.nodeName);
+                    if(event.public==true && (event.id=='1' ||  event.id=='2'))
+                        vm.openPublicAppointment(event);
 
 
                 },
