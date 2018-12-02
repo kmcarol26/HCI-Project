@@ -7,10 +7,10 @@ body {
     margin: 0;
     font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
     font-size: 14px;
+
 }
 
-.nv-text{font-size: medium; color: darkslateblue}
-.navbar {max-height:65px; background-color: thistle;
+.navbar {max-height:60px;background-color: cadetblue;
 !important;}
 .drop h4,
 .drop select{ display: inline}
@@ -27,6 +27,7 @@ form.submitted .ng-invalid
 {
     border: 1px solid red;
 }
+
 
 #calendar {
     margin: 40px auto;
@@ -136,4 +137,13 @@ a:visited {
     font-family: 'Fjalla One', sans-serif;
 }
 
+.logo{
+    font-size: 25px;
+    transform: scale(.5, 2);
+    font-family: 'Rubik', sans-serif;
+}
+
+.nav-name{
+    color: #333333;
+}
 /* Non-Demo Styles */
