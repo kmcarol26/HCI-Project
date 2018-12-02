@@ -125,18 +125,6 @@ Book time for upto 20 minutes within the available range specified below." class
 
 
             <div class="drop form-group">
-                <h4 class="astr">Member Count :</h4>
-                <input ng-model="model.appointment.membercount"
-                       name="membercount"
-                       type="number"
-                       size="4"
-                       required/>
-                <span class="text-error"
-                      data-ng-show="privateForm.submitted && privateForm.membercount.$error.required">
-                </span>
-            </div>
-
-            <div class="drop form-group">
                 <h4>Phone Number :</h4>
                 <input ng-model="appointment.phonenumber"
                        name="phonenumber"
@@ -174,7 +162,6 @@ Book time for upto 20 minutes within the available range specified below." class
                             PM - {{model.appointment.endTime.getHours()}}:{{model.appointment.endTime.getMinutes()}} PM </h5>
                             <h5><b>Teaching Assistant </b>: Tweety</h5>
                             <h5><b>Appointment Type</b> : {{appointment.visibility}} </h5>
-                            <h5><b>Member Count</b> : {{model.appointment.membercount}}</h5>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
