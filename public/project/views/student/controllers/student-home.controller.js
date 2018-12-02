@@ -6,8 +6,6 @@
     function studentHomeController($scope,$rootScope,$location) {
         var vm = this;
         vm.userTypes = ["Student", "Teaching Assistant"];
-        $rootScope.events= [];
-
     }
 
 })();

@@ -9,14 +9,10 @@
         vm.openPrivateAppointment=openPrivateAppointment;
         vm.findQuestions=findQuestions;
         vm.uid = $routeParams['uid'];
-
+        vm.events = [];
 
         function init() {
             $('.popover.in').remove();
-            // if(vm.uid == 1)
-            // {
-            //     vm.booked = "Appointment Booked!";
-            // }
             vm.minTime = "11:00:00";
             vm.maxTime = "13:00:00";
             vm.ed = '2018-11-22T12:20:00';
@@ -24,32 +20,34 @@
 
 
             if(vm.uid == -1) {
-                $rootScope.events=[];
+                console.log($rootScope.events);
 
+                // for(var i=0; i< $rootScope.events.length; i++)
+                // {
+                //     vm.events.push($rootScope.events[i]);
+                //     if(!$rootScope.events[i].public)
+                //         vm.events[i].color = 'tomato'
+                //
+                // }
 
-                $rootScope.events.push({
-                    title: "File Upload Issue",
-                    start: '2018-11-22T12:00:00',
-                    end: '2018-11-22T12:20:00',
-                    color: 'dodgerblue',
-                    editable: false,
-                    public: true,
-                    selectable : false
-                });
-                $rootScope.events.push({
-                    title:"Android Layout Problem",
-                    start: '2018-11-22T11:00:00',
-                    end: '2018-11-22T11:15:00',
-                    editable: false,
-                    color: 'tomato',
-                    public: false,
-
-
-
-                });
-
+                // $rootScope.events.push({
+                //     title: "File Upload Issue",
+                //     start: '2018-11-22T12:00:00',
+                //     end: '2018-11-22T12:20:00',
+                //     color: 'dodgerblue',
+                //     editable: false,
+                //     public: true,
+                //     selectable : false
+                // });
+                // $rootScope.events.push({
+                //     title:"Android Layout Problem",
+                //     start: '2018-11-22T11:00:00',
+                //     end: '2018-11-22T11:15:00',
+                //     editable: false,
+                //     color: 'tomato',
+                //     public: false,
+                //  });
             }
-
 
             $('#calendar').fullCalendar({
                 allDaySlot:false,
@@ -70,6 +68,7 @@
                 maxTime : vm.maxTime,
 
                 eventRender: function(eventObj, $el) {
+
                     // if(eventObj.public)
                     //     $el.popover({
                     //         title: "Public Appointment",
@@ -119,14 +118,12 @@
             });
 
 
-
             var $input = $('<button class="btn btn-warning btn-sm">HW1</button>');
             var $e = $('a.fc-time-grid-event.fc-v-event.fc-event.fc-start.fc-end');
             $input.appendTo($e);
 
         }
         init();
-
 
         function openPublicAppointment(event){
             event.category = "HW1";

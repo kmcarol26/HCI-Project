@@ -1,4 +1,4 @@
 (function(){
     angular
-        .module("TOHMS",["ngRoute"]);
+        .module("TOHMS",["ngRoute"])
 })();

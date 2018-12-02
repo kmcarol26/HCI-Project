@@ -48,7 +48,6 @@
                 start: vm.appointment.startTime,
                 end: vm.appointment.endTime,
                 category:appointment.category,
-                summary:appointment.summary,
                 color:appointment.color,
                 editable: false,
                 public:p
