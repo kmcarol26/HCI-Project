@@ -45,6 +45,7 @@
             $(".modal-backdrop").remove();
             $rootScope.events.push({
                 title: appointment.summary,
+                description: appointment.description,
                 start: vm.appointment.startTime,
                 end: vm.appointment.endTime,
                 category:appointment.category,

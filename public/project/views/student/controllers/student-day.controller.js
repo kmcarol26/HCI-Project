@@ -15,6 +15,7 @@
         vm.editAppointment = editAppointment;
         vm.cancelAppointment = cancelAppointment;
         vm.cancelAppointmentModal = cancelAppointmentModal;
+        vm.openExisting = openExisting;
         vm.searchTerm = "";
 
 
@@ -27,37 +28,12 @@
             // {
             //     vm.booked = "Appointment Booked!";
             // }
+
             vm.minTime = "11:00:00";
             vm.maxTime = "13:00:00";
             vm.ed = '2018-11-22T12:20:00';
             vm.sd = '2018-11-22T12:00:00';
 
-
-            // if(vm.uid == -1) {
-
-            // $rootScope.events.push({
-            //     id:'1',
-            //     summary: "File Upload Issue",
-            //     category:'HW1',
-            //     start: '2018-11-22T12:00:00',
-            //     end: '2018-11-22T12:20:00',
-            //     color: 'dodgerblue',
-            //     editable: false,
-            //     public: true,
-            //     selectable : false
-            // });
-            // $rootScope.events.push({
-            //     id:'2',
-            //     start: '2018-11-22T11:05:00',
-            //     end: '2018-11-22T11:15:00',
-            //     color: 'black',
-            //     editable: false,
-            //     rendering: 'background',
-            //     public: false,
-            //     bg : true
-            // });
-
-            //TODO : Assign Ids
 
             $('#calendar').fullCalendar({
                 allDaySlot: false,
@@ -160,9 +136,8 @@
                         vm.cancelAppointmentModal(event)
                     }
                     if (event.id != '1' && event.id != '2' && jsEvent.target.nodeName != 'BUTTON')
-                        vm.editAppointment(event);
+                        vm.openExisting(event);
 
-                    // console.log(jsEvent.target.nodeName);
                     if (event.public == true && (event.id == '1' || event.id == '2'))
                         vm.openPublicAppointment(event);
 
@@ -175,9 +150,6 @@
 
             });
 
-            // var $input = $('<button class="btn btn-warning btn-sm">HW1</button>');
-            // var $e = $('a.fc-time-grid-event.fc-v-event.fc-event.fc-start.fc-end');
-            // $input.appendTo($e);
 
             $('[data-toggle="tooltip"]').tooltip();
 
@@ -211,6 +183,18 @@
 
         }
 
+        function openExisting(event) {
+            for(var i=0; i<$rootScope.events.length;i++)
+            {
+                if(event.title == $rootScope.events[i].title){
+                    $rootScope.currEvent = $rootScope.events[i];
+                }
+            }
+
+            $location.url('/editAppointment/');
+            $scope.$apply();
+        }
+
         function openPrivateAppointment(s, e) {
             var event = {startTime: s, endTime: e};
             $rootScope.privateEvent = event;
@@ -219,19 +203,6 @@
         }
 
         function findQuestions(term) {
-            // for (var i = 0; i < $rootScope.events.length; i++) {
-            //     var source = $rootScope.events[i].title.toLowerCase();
-            //     if (source.includes(term.toLowerCase())) {
-            //         $('a.fc-time-grid-event.fc-v-event.fc-event.fc-start.fc-end')
-            //             .css({"border-color": "red", "border-width": "thick"});
-            //     }
-            //     else {
-            //         $('a.fc-time-grid-event.fc-v-event.fc-event.fc-start.fc-end')
-            //             .css({"border": "none"})
-            //     }
-            //
-            // }
-
             vm.searchTerm = term;
             $('#calendar').fullCalendar('rerenderEvents');
 

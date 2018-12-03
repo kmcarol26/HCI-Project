@@ -20,7 +20,7 @@
 
     <form name="privateForm" ng-class="{submitted:privateForm.submitted}">
 
-        <h2>Edit your appointment </h2>
+        <h2>View your appointment </h2>
         <br>
 
         <div class="alert alert-success" ng-show="model.message">
@@ -31,115 +31,44 @@
             {{model.error}}
         </div>
 
-        <h3>Question details :</h3>
+        <h3> <b> Question details : </b></h3>
         <br>
         <div class="form-group">
-            <div class="drop">
-                <h4 class="astr">Category: </h4>
-                <select ng-model="model.event.category" required>
-                    <br/><br/>
-                    <option ng-repeat="catType in model.categoryTypes">{{catType}}</option>
-                </select>
-            </div>
+            <h3> Category:
+                {{model.category}} </h3>
+        </div>
 
-            <h4 class="astr">Summary: </h4>
-            <textarea
-                    ng-model="model.event.summary"
-                    class="form-control"
-                    <!--placeholder="Type Question.."-->
-                    rows="1" cols="2"
-                    required>
-                </textarea>
-            <span class="text-error"
-                  data-ng-show="privateForm.submitted && privateForm.summary.$error.required">
-                </span>
-            </h4>
-
-            <h4>Description: </h4>
-            <textarea
-                    ng-model="model.event.description"
-                    class="form-control"
-                    placeholder="Enter brief description"
-                    rows="3" cols="3">
-            </textarea>
-
-            <div class=" form-group">
-                <h4 class="astr">Confirm Selected Slot:
-                    <i data-toggle="tooltip" data-placement="right" title="You can reduce the duration of your timeslot here.
-Book time for upto 20 minutes within the available range specified below." class="fa fa-question-circle"></i></h4>
-
-                <div ng-if="model.appointment.endTime <= model.initEndTime &&
-             model.appointment.startTime >= model.initStartTime &&
-             (model.appointment.endTime - model.appointment.startTime)/60000 > 20"
-                     class="alert alert-danger" role="alert">
-                    <h11>Time Slot cannot exceed 20 mins</h11>
-                </div>
-
-                <div ng-if="model.appointment.endTime <= model.initEndTime &&
-             model.appointment.startTime >= model.initStartTime && (model.appointment.endTime - model.appointment.startTime)/60000 < 0"
-                     class="alert alert-danger" role="alert">
-                    <h11>Start time should be before end time</h11>
-                </div>
-
-                <div ng-if="!(model.appointment.endTime <= model.initEndTime &&
-             model.appointment.startTime >= model.initStartTime)"
-                     class="alert alert-danger" role="alert">
-                    <h11>Time slot should be between
-                        {{model.initStartTime.getHours()}}:{{model.initStartTime.getMinutes()}}
-                        - {{model.initEndTime.getHours()}}:{{model.initEndTime.getMinutes()}}
-                    </h11>
-                </div>
-
-                <input ng-model="model.event.start._i"
-                       name="startTime"
-                       type="time"
-                       required/>
-                <span class="text-error"
-                      data-ng-show="privateForm.submitted && privateForm.startTime.$error.required">
-            </span>
-
-                -
-
-                <input ng-model="model.event.end._i"
-                       name="endTime"
-                       type="time"
-                       required/>
-                <span class="text-error"
-                      data-ng-show="privateForm.submitted && privateForm.endTime.$error.required">
-            </span>
+        <div class="form-group">
+        <h3>Summary:
+            {{model.event.summary}}</h3>
+        </div>
 
 
-                <span ng-if="(model.appointment.endTime - model.appointment.startTime)/60000 > 0">
-               <i> {{(model.appointment.endTime - model.appointment.startTime)/60000}} mins </i>
-            </span>
+        <div class="form-group">
+        <h3>Description: </h3>
+           <h4> {{model.event.description}} </h4>
+        </div>
 
-            </div>
-
-
-            <div class="drop form-group">
-                <h4 class="astr">Visibility :</h4>
-                <select ng-model="model.visibility" required>
-                    <option ng-repeat="visibleType in model.visibleTypes">{{visibleType}}</option>
-                </select>
-
-                </h4>
-            </div>
+        <div class=" form-group">
+            <h3>Selected Slot:
+                {{model.event.start.getHours()}}:{{model.event.start.getMinutes()}}
+                - {{model.event.end.getHours()}}:{{model.event.end.getMinutes()}} PM </h3>
+        </div>
 
 
-            <div class="drop form-group">
-                <h4>Phone Number :</h4>
-                <input ng-model="appointment.phonenumber"
-                       name="phonenumber"
-                       type="tel"/>
-            </div>
+        <div class="drop form-group">
+            <h3>Visibility :
+                {{model.visibility}} </h3>
+        </div>
 
-            <br/>
+
+        <br/>
 
             <div class="form-group">
 
                 <button type="button" class="btn btn-info btn-md"
                         ng-click="model.updateAppointment()">
-                    Update
+                    Back
                 </button>
             </div>
 
