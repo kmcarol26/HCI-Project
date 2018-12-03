@@ -23,6 +23,32 @@
         <h2>View your appointment </h2>
         <br>
 
+        <div class="modal fade" id="confirmCancelModal" tabindex="-1" role="dialog" aria-labelledby="confirmModal"
+             aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="pull-right btn-danger" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 class="modal-title"><b>Cancel Appointment?</b>
+                        </h4>
+                    </div>
+                    <div class="modal-body">
+                        <h5><b>Date</b> Are you sure you want to cancel your appointment on 22 November, 2018 from
+                            {{model.event.start.getHours()}}:{{model.event.start.getMinutes()}}
+                            - {{model.event.end.getHours()}}:{{model.event.end.getMinutes()}} PM </h5>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary" data-dismiss="modal"
+                                ng-click="model.cancelAppointment( )">Confirm
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="alert alert-success" ng-show="model.message">
             {{model.message}}
         </div>
@@ -70,35 +96,16 @@
                         ng-click="model.updateAppointment()">
                     Back
                 </button>
+
+                <button type="button" class="btn btn-danger btn-md"
+                        ng-click="model.cancelAppointmentModal()">
+                    Delete Appointment
+                </button>
+
             </div>
 
 
-            <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="confirmModal" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="pull-right btn-danger" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                            <h4 class="modal-title"> <b>Confirm changes to your appointment?</b>
-                            </h4>
-                        </div>
-                        <div class="modal-body">
-                            <h5> <b>Date</b> : 25th October, 2018 </h5>
-                            <h5><b>Time </b>: {{model.appointment.startTime.getHours()}}:{{model.appointment.startTime.getMinutes()}}
-                                PM - {{model.appointment.endTime.getHours()}}:{{model.appointment.endTime.getMinutes()}} PM </h5>
-                            <h5><b>Teaching Assistant </b>: Tweety</h5>
-                            <h5><b>Appointment Type</b> : {{appointment.visibility}} </h5>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                            <button type="button" class="btn btn-primary" data-dismiss="modal"
-                                    ng-click="model.confirmAppointment(appointment)">Confirm</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+
 
     </form>
 </div>

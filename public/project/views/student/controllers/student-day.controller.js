@@ -14,12 +14,13 @@
         vm.showAllGroupAppointments = showAllGroupAppointments;
         vm.editAppointment = editAppointment;
         vm.cancelAppointment = cancelAppointment;
-        vm.cancelAppointmentModal = cancelAppointmentModal;
         vm.openExisting = openExisting;
         vm.searchTerm = "";
 
 
         function init() {
+
+
 
             $('.popover.in').remove();
             $rootScope.count += 1;
@@ -153,17 +154,29 @@
 
             $('[data-toggle="tooltip"]').tooltip();
 
+            if(vm.uid == 99)
+            {
+                console.log($rootScope.currEvent);
+                cancelAppointment()
+            }
+
         }
 
         init();
 
-        function cancelAppointmentModal(event) {
-            $("#confirmCancelModal").modal('show');
-        }
 
         function cancelAppointment() {
-            $('#calendar').fullCalendar('removeEvents', vm.clickedEvent._id)
-            vm.booked = "Appointment cancelled!"
+            $('#calendar').fullCalendar('removeEvents', $rootScope.currEvent._id)
+            vm.cancelled = "Appointment cancelled!"
+            for(var i=0;i<$rootScope.events.length;i++)
+            {
+                if($rootScope.currEvent.title == $rootScope.events[i].title)
+                {
+                    $rootScope.events.splice(i, 1);
+                }
+            }
+
+            console.log($rootScope.events);
         }
 
         function openPublicAppointment(event) {
@@ -188,6 +201,7 @@
             {
                 if(event.title == $rootScope.events[i].title){
                     $rootScope.currEvent = $rootScope.events[i];
+                    $rootScope.currEvent._id = event._id;
                 }
             }
 
