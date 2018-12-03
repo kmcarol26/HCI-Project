@@ -116,20 +116,32 @@ Book time for upto 20 minutes within the available range specified below." class
 
 
             <div class="drop form-group">
-                <h4 class="astr">Visibility :</h4>
-                <select ng-model="appointment.visibility" required>
-                    <option ng-repeat="visibleType in model.visibleTypes">{{visibleType}}</option>
-                </select>
+                <h4 class="astr">Appointment Type : </h4>
+                <div class="btn-group btn-group-toggle" data-toggle="buttons">
+                    <label class="btn btn-primary">
+                        <input type="radio" name="options" ng-model="appointment.visibility" ngChange="model.setvisibility()" ng-true-value="Private" ng-false-value = "Public"   id="option1" autocomplete="off" > Private Appointment
+                        <i data-toggle="privateAppt-tooltip" data-placement="right" title="A Private Appointment is visible only to you." class="fa fa-question-circle"></i>
+                    </label>
+                    <label class="btn btn-primary">
+                        <input type="radio" name="options" ng-model="appointment.visibility" ng-true-value="Public" ng-false-value = "Private" id="option2" autocomplete="off"> Group Appointment
+                        <i data-toggle="publicAppt-tooltip" data-placement="right" title="A Group Appointment is visible to all students and can be joined by others who have similar questions as you." class="fa fa-question-circle"></i>
+
+                    </label>
+
+                </div>
+                <!--<select ng-model="appointment.visibility" required>-->
+                    <!--<option ng-repeat="visibleType in model.visibleTypes">{{visibleType}}</option>-->
+                <!--</select>-->
 
                 </h4>
             </div>
 
 
             <div class="drop form-group">
-                <h4>Phone Number :</h4>
+                <h4>Email address :</h4>
                 <input ng-model="appointment.phonenumber"
                        name="phonenumber"
-                       type="tel"/>
+                       type="email"/>
             </div>
 
             <br/>

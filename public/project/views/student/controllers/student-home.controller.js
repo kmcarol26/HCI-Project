@@ -5,7 +5,11 @@
 
     function studentHomeController($scope,$rootScope,$location) {
         var vm = this;
-        vm.userTypes = ["Student", "Teaching Assistant"];
+        vm.schedulePage = schedulePage
+
+        function schedulePage(course){
+            $rootScope.course = course;
+            $location.url('/studentcalendar');        }
     }
 
 })();

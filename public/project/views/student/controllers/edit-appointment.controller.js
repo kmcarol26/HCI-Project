@@ -7,7 +7,7 @@
         var vm = this;
         vm.event = $rootScope.editEvent;
         vm.categoryTypes = ["HW1", "HW2", "HW3", "Exam", "Project"];
-        vm.visibleTypes = ["Public", "Private"];
+        vm.visibleTypes = ["Group Appointment", "Private Appointment"];
         vm.updateAppointment = updateAppointment;
         vm.confirmAppointment=confirmAppointment;
 
@@ -19,6 +19,7 @@
             vm.initEndTime = new Date(event.endTime);
             vm.appointment = {startTime: vm.initStartTime, endTime : vm.initEndTime, category : vm.category};
             vm.appointment.membercount = 1;
+            console.log(vm.event.public)
             if (vm.event.public == true) {
                 vm.visibility = 'public';
             }
