@@ -1,13 +1,20 @@
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar  navbar-fixed-top navbar-light bg-primary">
     <div class="container-fluid">
+
         <div class="navbar-text pull-right">
-            <span class="nav-name"> Noddy </span>
-            <a class="btn btn-lg" href="#/home"><i class="glyphicon glyphicon-home"></i></a>
-            <a href="#/" class="btn btn-danger btn-sm">
-                <span class="glyphicon glyphicon-log-out"></span>
-            </a>        </div>
+            <div class="row">
+
+                <span href="#/" class="nav-name">
+                     Noddy
+                </span>
+
+            <a class="logo" href="#/home" style="margin-right: 15px" >Home</a>
+            <a href="#/"  style="color:white;margin-bottom: 12px">
+                <span class="logo" >Logout</span>
+            </a>
+            </div></div>
         <div class="navbar-header">
-            <div class="navbar-brand btn">
+            <div class="navbar-brand">
                 <h3>
                     <a href="#/" class="glyphicon glyphicon-chevron-left pull-left">  </a>
                     <span style="margin-left:0.5em" class="logo"> T.O.H.M.S </span></h3>
@@ -17,42 +24,35 @@
 </nav>
 
 <div class="container">
-    <br/>
-    <h3><i>Courses where you are</i> Student :
-    </h3>
-
-    <br/>
-    <br/>
-
-    <!--<div ng-show="user == 'Student'">-->
-
-        <h2><u>Check TA Office hours for :</u>
-
-        <br/>
-            <br/>
-
-        <ul>
-            <li><h3><a href ="#/studentcalendar"> CS5200 - Database Management Systems </a></h3></li>
-            <br/>
-            <li><h3><a href ="#/studentcalendar"> CS6400 - DataMining Techniques </a></h3></li>
-        </ul>
-
-        </h2>
-    <!--</div>-->
-
-    <!--<h3>Courses where you are Teaching Assistant :-->
-        <!--&lt;!&ndash;<select ng-model="user">&ndash;&gt;-->
-        <!--&lt;!&ndash;<option ng-repeat="userType in model.userTypes">{{userType}}</option>&ndash;&gt;-->
-        <!--&lt;!&ndash;</select>&ndash;&gt;-->
-    <!--</h3>-->
-    <!---->
-    <!--<div ng-show="user == 'Teaching Assistant'" class="alert alert-danger" role="alert">-->
-        <!--No Courses Found!-->
-    <!--</div>-->
+    <div class="row">
+    <img class="text-right" ng-src="/project/views/student/templates/oh.jpg" width="820px" height="300px" style="margin-left: 150px" >
+        <br>
+        <br>
+        <br>
+        <div class="row">
+            <div>
+            <button type="button" class="btn btn-success btn-lg " data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" style="margin-left: 300px" >Schedule an appointment</button>
+            <button type="button" class="btn btn-success btn-lg disabled" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" style="margin-left: 100px" >View upcoming appointments</button>
 
 
-    <div id='calendar'></div>
+        </div>
+        <div class="collapse" id="collapseExample" style="margin-left: 300px">
+            <br>
+            <div class="card card-body" style="font-size: 15px;font-family: 'sans-serif">
+                <a href="" ng-click="model.schedulePage('db')" >CS 5200 Database Management Systems</a><br>
+                <a href="" ng-click="model.schedulePage('hci')">CS 5340 Human Computer Interaction</a>
+
+            </div>
+        </div>
+
+
+    </div>
+
 
 
 
 </div>
+
+
+
+

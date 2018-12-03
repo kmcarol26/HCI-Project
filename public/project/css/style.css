@@ -7,10 +7,12 @@ body {
     margin: 0;
     font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
     font-size: 14px;
+    background-color: snow;
 
 }
 
-.navbar {max-height:60px;background-color: cadetblue;
+.navbar {max-height:65px;background-color: #3366FF;
+    color:white;
 !important;}
 .drop h4,
 .drop select{ display: inline}
@@ -141,9 +143,15 @@ a:visited {
     font-size: 25px;
     transform: scale(.5, 2);
     font-family: 'Rubik', sans-serif;
+    color:white;
 }
 
 .nav-name{
-    color: #333333;
+    font-size: 15px;
+    transform: scale(.5, 2);
+    font-family: 'Rubik', sans-serif;
+    color:white;
+    margin-right: 50px;
+    margin-left: 10px;
 }
 /* Non-Demo Styles */

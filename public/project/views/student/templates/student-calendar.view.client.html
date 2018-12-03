@@ -19,16 +19,12 @@
 
 
 <div class="container">
+    <h2 class = "text-center"> Weekly Office Hours Schedule</h2>
+    <br>
+    <h3 class = "text-center" ng-if="model.course == 'db' "> CS5200 - Database Management Systems</h3>
+    <h3 class = "text-center" ng-if="model.course == 'hci' ">CS5340 - Human Computer Interaction</h3>
 
-    <h2>Office Hours Weekly Schedule for CS5200 - Database Management Systems</h2>
-    <br/>
-    <h3>Select the Teaching Assistant:
-        <select ng-model="ta">
-            <option ng-repeat="taName in model.taNames">{{taName}}</option>
-        </select></h3>
-<br/>
-
-    <div id='calendar' ng-show="ta=='Tweety' || ta=='Sylvester'" >
+    <div id='calendar' >
 
 
     </div>

@@ -6,6 +6,10 @@
     function studentCalendarController($scope,$rootScope,$location) {
         var vm = this;
         vm.taNames = ["Tweety", "Sylvester"];
+        function init(){
+            vm.course = $rootScope.course;
+        }
+        init();
         $(function() {
             $('#calendar').fullCalendar({
                 height:520,

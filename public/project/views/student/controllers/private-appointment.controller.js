@@ -6,9 +6,11 @@
     function privateAppointmentController($scope, $rootScope, $location) {
         var vm = this;
         vm.categoryTypes = ["HW1", "HW2", "HW3", "Exam", "Project"];
-        vm.visibleTypes = ["Public", "Private"];
+        // vm.visibleTypes = ["Group Appointment", "Private Appointment"];
         vm.bookAppointment = bookAppointment;
         vm.confirmAppointment=confirmAppointment;
+        vm.setVisibility = setVisibility;
+
 
         function init() {
             $('.popover.in').remove();
@@ -18,8 +20,27 @@
             vm.appointment = {startTime: vm.initStartTime, endTime : vm.initEndTime, category : vm.category};
             vm.appointment.membercount = 1;
             $('[data-toggle="tooltip"]').tooltip();
+            $('[data-toggle="privateAppt-tooltip"]').tooltip();
+            $('[data-toggle="publicAppt-tooltip"]').tooltip();
+            $("#option1").click(function(){
+                console.log("clicked");
+                $(this).button('toggle');
+                vm.appointment.visibility = 'Private'
+            });
+            $("#option2").click(function(){
+                $(this).button('toggle');
+                vm.appointment.visibility = 'Public'
+
+            });
+
+
         }
         init();
+        function setVisibility(){
+            console.log("set v");
+
+        }
+
 
         function bookAppointment() {
             if ($scope.privateForm.$valid) {

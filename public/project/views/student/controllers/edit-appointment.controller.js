@@ -10,6 +10,7 @@
         vm.cancelAppointment = cancelAppointment;
         // vm.categoryTypes = ["HW1", "HW2", "HW3", "Exam", "Project"];
         // vm.visibleTypes = ["Public", "Private"];
+
         vm.updateAppointment = updateAppointment;
         // vm.confirmAppointment=confirmAppointment;
 
@@ -19,6 +20,7 @@
             vm.initStartTime = vm.event.startTime;
             vm.initEndTime = vm.event.endTime;
             vm.category = vm.event.category;
+
             if (vm.event.public == true) {
                 vm.visibility = 'Public';
             }
