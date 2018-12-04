@@ -27,15 +27,13 @@
             if(vm.uid == -1) {
                 $rootScope.events=[];
 
-
             }
-
 
             $('#calendar').fullCalendar({
                 allDaySlot:false,
                 height:600,
                 slotDuration:'00:05:00',
-                defaultDate: "2018-11-22",
+                defaultDate: "2018-12-04",
                 defaultView: 'agendaDay',
                 selectable: true,
                 timezone: 'local',

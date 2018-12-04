@@ -19,37 +19,6 @@
             vm.ed = '2018-12-06T12:20:00';
             vm.sd = '2018-12-06T12:00:00';
 
-
-            // if(vm.uid == -1) {
-            //     console.log($rootScope.events);
-            //
-            //     for(var i=0; i< $rootScope.events.length; i++)
-            //     {
-            //         vm.events.push($rootScope.events[i]);
-            //         if(!$rootScope.events[i].public)
-            //             vm.events[i].color = 'tomato'
-            //
-            //     }
-            //
-            //     $rootScope.events.push({
-            //         title: "File Upload Issue",
-            //         start: '2018-11-22T12:00:00',
-            //         end: '2018-11-22T12:20:00',
-            //         color: 'dodgerblue',
-            //         editable: false,
-            //         public: true,
-            //         selectable : false
-            //     });
-            //     $rootScope.events.push({
-            //         title:"Android Layout Problem",
-            //         start: '2018-11-22T11:00:00',
-            //         end: '2018-11-22T11:15:00',
-            //         editable: false,
-            //         color: 'tomato',
-            //         public: false,
-            //      });
-            // }
-
             $('#calendar').fullCalendar({
                 allDaySlot:false,
                 height:600,
@@ -127,6 +96,7 @@
         init();
 
         function openPublicAppointment(event){
+            $('.popover.in').remove();
             event.category = "HW1";
             event.description = "Unable to upload output jar files to remote repository. Could you explain the procedure?" +
                 " Thanks.";
@@ -136,6 +106,7 @@
         }
 
         function openPrivateAppointment(s,e){
+            $('.popover.in').remove();
             var event = {startTime : s, endTime : e};
             $rootScope.privateEvent = event;
             $location.url('/taBookPrivate/');
