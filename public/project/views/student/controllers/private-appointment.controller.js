@@ -6,7 +6,7 @@
     function privateAppointmentController($scope, $rootScope, $location) {
         var vm = this;
         vm.categoryTypes = ["HW1", "HW2", "HW3", "Exam", "Project"];
-        // vm.visibleTypes = ["Group Appointment", "Private Appointment"];
+        vm.visibleTypes = ["Group Appointment", "Private Appointment"];
         vm.bookAppointment = bookAppointment;
         vm.confirmAppointment=confirmAppointment;
         vm.setVisibility = setVisibility;
@@ -22,16 +22,16 @@
             $('[data-toggle="tooltip"]').tooltip();
             $('[data-toggle="privateAppt-tooltip"]').tooltip();
             $('[data-toggle="publicAppt-tooltip"]').tooltip();
-            $("#option1").click(function(){
-                console.log("clicked");
-                $(this).button('toggle');
-                vm.appointment.visibility = 'Private'
-            });
-            $("#option2").click(function(){
-                $(this).button('toggle');
-                vm.appointment.visibility = 'Public'
-
-            });
+            // $("#option1").click(function(){
+            //     console.log("clicked");
+            //     $(this).button('toggle');
+            //     vm.appointment.visibility = 'Private'
+            // });
+            // $("#option2").click(function(){
+            //     $(this).button('toggle');
+            //     vm.appointment.visibility = 'Public'
+            //
+            // });
 
 
         }
@@ -55,7 +55,7 @@
 
         function confirmAppointment(appointment) {
             var p;
-            if(appointment.visibility == "Public") {
+            if(appointment.visibility == "Group Appointment") {
                 appointment.color = 'dodgerblue';
                 p = true;
             }

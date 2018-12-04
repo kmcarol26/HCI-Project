@@ -3,10 +3,25 @@
         .module("TOHMS")
         .controller("taCalendarController", taCalendarController);
 
-    function taCalendarController($scope, $location) {
+    function taCalendarController($scope,$rootScope, $location) {
         var vm = this;
 
         vm.studentNames = ["Noddy", "Winnie"];
+        vm.events=[
+
+            {
+                id:'1',
+                title  : 'Office Hours:Tweety',
+                start  : '2018-11-22T11:00:00',
+                end    :  '2018-11-22T13:00:00',
+                allDay :false,
+                url:'#/taday/-1'
+
+
+
+            }
+
+        ];
 
 
         $(function() {
@@ -24,21 +39,7 @@
                 },
 
 
-                events: [
-
-                    {
-                        id:'1',
-                        title  : 'CS5200 Office Hours',
-                        start  : '2018-11-22T11:00:00',
-                        end    :  '2018-11-22T13:00:00',
-                        allDay :false,
-                        url:'#/taday/-1'
-
-
-
-                    }
-
-                ],
+                events: vm.events ,
                 eventColor: '#378006',
                 eventClick: function(event) {
                     $('.popover.in').remove();
@@ -49,20 +50,31 @@
                         return false;
                     }
                     if (event.id=='2'){
-                        location.url('/newTaHours/');
+                        $location.url('#/newTaHours/');
                     }
                 },
                 dayClick: function(date, jsEvent, view) {
                     $('.popover.in').remove();
 
+                    vm.events.push({
+                        title:'Office Hours: Tweety',
+                        start: date,
+                        editable: true,
+                        startEditable: true,
+                        durationEditable: true,
+                        url:'#/newTaHours/'
+                    });
+                    $location.url('/studentday/1');
+
                     $('#calendar').fullCalendar('renderEvent', {
                         id: '2',
-                        title: 'CS5200 Office Hours',
+                        title: 'Office Hours: Tweety',
                         start: date,
                         allDay: false,
                         editable: true,
                         startEditable: true,
-                        durationEditable: true
+                        durationEditable: true,
+                        url:'#/newTaHours/'
                     }, true)
                 },
                     eventRender: function(eventObj, $el) {

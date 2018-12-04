@@ -1,22 +1,15 @@
-<nav class="navbar  navbar-fixed-top navbar-light bg-primary">
+<nav class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
-
         <div class="navbar-text pull-right">
-            <div class="row">
-
-                <span href="#/" class="nav-name">
-                     Noddy
-                </span>
-
-            <a class="logo" href="#/home" style="margin-right: 15px" >Home</a>
-            <a href="#/"  style="color:white;margin-bottom: 12px">
-                <span class="logo" >Logout</span>
-            </a>
-            </div></div>
+            <span class="nav-name"> Noddy </span>
+            <a class="btn btn-lg" href="#/home"><i class="glyphicon glyphicon-home"></i></a>
+            <a href="#/" class="btn btn-danger btn-sm">
+                <span class="glyphicon glyphicon-log-out"></span>
+            </a>        </div>
         <div class="navbar-header">
             <div class="navbar-brand">
                 <h3>
-                    <a href="#/" class="glyphicon glyphicon-chevron-left pull-left">  </a>
+                    <a href="#/home" class="glyphicon glyphicon-chevron-left pull-left">  </a>
                     <span style="margin-left:0.5em" class="logo"> T.O.H.M.S </span></h3>
             </div>
         </div>
@@ -29,28 +22,29 @@
         <br>
         <br>
         <br>
-        <div class="row">
+        <div class="row" style="margin-left: 400px">
             <div>
-            <button type="button" class="btn btn-success btn-lg " data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" style="margin-left: 300px" >Schedule an appointment</button>
-            <button type="button" class="btn btn-success btn-lg disabled" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample" style="margin-left: 100px" >View upcoming appointments</button>
+               <h4> Courses where you are a Student:</h4>
+                <div style="font-size: 15px;font-family: 'sans-serif">
+                <a href="" style="margin-left: 50px" ng-click="model.schedulePage('db')" >CS 5200 Database Management Systems</a><br>
+                 <a href="" style="margin-left: 50px" ng-click="model.schedulePage('hci')">CS 5340 Human Computer Interaction</a>
+                </div>
+                <br>
+               <h4> Courses where you are a Teaching Assistant:</h4>
+                <div style="font-size: 15px;font-family: 'sans-serif'; margin-left: 50px">
+                <p>None</p>
+                </div>
 
 
-        </div>
-        <div class="collapse" id="collapseExample" style="margin-left: 300px">
-            <br>
-            <div class="card card-body" style="font-size: 15px;font-family: 'sans-serif">
-                <a href="" ng-click="model.schedulePage('db')" >CS 5200 Database Management Systems</a><br>
-                <a href="" ng-click="model.schedulePage('hci')">CS 5340 Human Computer Interaction</a>
+                </div>
 
-            </div>
-        </div>
 
 
     </div>
 
 
 
-
+</div>
 </div>
 
 

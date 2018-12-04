@@ -29,7 +29,7 @@
 
                     {
                         id:'1',
-                        title  : 'CS5200 Office Hours',
+                        title  : 'Office Hours:Tweety',
                         start  : '2018-11-22T11:00:00',
                         end    :  '2018-11-22T13:00:00',
                         allDay :false,

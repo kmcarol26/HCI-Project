@@ -9,11 +9,172 @@
         <div class="navbar-header">
             <div class="navbar-brand btn">
                 <h3>
-                    <a href="#/home" class="glyphicon glyphicon-chevron-left pull-left">  </a>
+                    <a href="#/tacalendar" class="glyphicon glyphicon-chevron-left pull-left">  </a>
                     <span style="margin-left:0.5em" class="logo"> T.O.H.M.S </span></h3>
             </div>
         </div>
     </div>
+</nav>
+<div class="container" ng-init="tab='appt'">
+
+    <div class="card" style="width: 18rem;margin-left:450px">
+        <div class="card-body ">
+            <h5  ng-if="model.course == 'hci'" class="card-title">Office Hours Schedule for CS5340 Human Computer Interaction</h5>
+            <h5  ng-if="model.course == 'db'" class="card-title">Office Hours Schedule for CS5200 Database Management Systems</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Teaching Assistant: Tweety</h6>
+            <h6 class="card-subtitle mb-2 text-muted">Location: WVH-320</h6>
+            <!--<a tabindex="0" class="btn btn-md btn-danger" title="Book your appointment with TA"-->
+            <!--data-toggle="popover" data-trigger="focus"-->
+            <!--data-content="Click on an existing group-->
+            <!--appointment to add yourself to the discussion.-->
+            <!--To book your own appointment,select an-->
+            <!--available timeslot and drag till the required time.">-->
+            <!--Want to book an appointment?</a>-->
+        </div>
+    </div>    <br/>
+
+    <br/>
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" ng-class="{'active':tab=='appt'}">
+            <a class="nav-link active" ng-click = "tab='appt'" id="appointments" data-toggle="tab" data-target="#appt-div"  role="tab" aria-controls="home" aria-selected="true">Appointments</a>
+        </li>
+        <li class="nav-item" ng-class="{'active':tab=='quest'}">
+            <a class="nav-link" ng-click="tab='quest'" id="questions" data-toggle="tab" data-target=="#questions-div" role="tab" aria-controls="profile" aria-selected="false">See questions</a>
+        </li>
+
+    </ul>
+    <div class="tab-content" id="myTabContent">
+        <div ng-show="tab=='appt'" id='calendar-id' class="tab-pane active" id="appt-div" role="tabpanel" aria-labelledby="appointments">
+
+            <div class="row">
+
+                <div id='index-view' class="index col-md-2">
+                    <b>Index:</b>
+                    <div class="row">
+                        <div class="group-index col-md-2"></div>
+                        <div class="col-md-10"><b>Group Appointment</b></div>
+                    </div>
+                    <br/>
+                    <div class="row">
+                        <div class="private-index col-md-2"></div>
+                        <div class="col-md-10"><b>Private Appointment</b></div>
+                    </div>
+                </div>
+
+                <div class="col-md-8">
+
+
+                    </br>
+
+                    <div class="input-group text-search">
+
+                        <input ng-model="searchTerm" type="text" class="form-control" placeholder="Search for questions.."/>
+                        <span class="input-group-addon">
+            <a>
+               <i ng-click="model.findQuestions(searchTerm)" class="fa fa-search"></i>
+            </a></span>
+                    </div>
+
+                    <br/>
+                    <!--<nav class=" filter nav navbar-default">-->
+                    <!--<b style="font-size: 20px;">Show </b>-->
+
+                    <!--<button type="button" class="btn btn-success btn-md"  ng-click="model.showAllAppointments()" >All appointments</button>-->
+                    <!--<button type="button" class="btn btn-success btn-md "  ng-click="model.showMyBookedAppointments()" >Group appointments</button>-->
+                    <!--<button type="button" class="btn btn-success btn-md"  ng-click="model.showAllGroupAppointments()" >Private Appointments</button>-->
+                    <!--</nav>-->
+                    <div id='calendar' class="cal-bg " ></div>
+                </div>
+                <div class="col-md-2 " style="margin-top:100px">
+                    <nav class=" nav navbar-default">
+                        <b style="font-size: 15px;">Filter Appointments </b>
+                        <br>
+                        <br>
+                        <button type="button" class="btn btn-success btn-md" ng-click="model.showAllAppointments()">All
+                            appointments
+                        </button>
+                        <br>
+                        <br>
+                        <button type="button" class="btn btn-success btn-md " ng-click="model.showMyBookedAppointments()">My
+                            appointments
+                        </button>
+                        <br>
+                        <br>
+                        <button type="button" class="btn btn-success btn-md " ng-click="model.showAllGroupAppointments()">All
+                            Group Appointments
+                        </button>
+                    </nav>
+                </div>
+
+            </div>
+        </div>
+        <div ng-show="tab=='quest'" class="tab-pane active" id="questions-div" role="tabpanel" aria-labelledby="profile-tab">
+            </br>
+
+            <div id="accordion">
+                <div class="card" >
+                    <div class="card-header" id="headingOne">
+                        <h3 class="mb-0">
+                            <button class="btn btn-info .btn-sm" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                <h5>Homework#1</h5>
+                            </button>
+                        </h3>
+                    </div>
+
+
+                    <div id="collapseOne" class="collapse " aria-labelledby="headingOne" data-parent="#accordion">
+                        <div class="card col-6" style="width: 14rem;">
+                            <div class="card-body">
+
+                            </div>
+                        </div>
+                        <div class="card cold-6" style="width: 14rem;">
+                            <div class="card-body">
+                                <p style="font-weight: bold"> No issues found</p>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </br>
+                <div class="card col-4 ">
+                    <div class="card-header" id="headingTwo">
+                        <h3 class="mb-0">
+                            <button class="btn btn-info .btn-sm collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                <h5>Grading</h5>
+                            </button>
+                        </h3>
+                    </div>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                        <div class="card-body">
+                            <p style="font-weight: bold"> No issues found</p>
+                        </div>
+                    </div>
+                </div>
+                </br>
+                <div class="card col-4">
+                    <div class="card-header" id="headingThree">
+                        <h3 class="mb-0">
+                            <button class="btn btn-info .btn-sm collapsed" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                <h5>General</h5>
+                            </button>
+                        </h3>
+                    </div>
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                        <div class="card-body">
+                            <p style="font-weight: bold"> No issues found</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+
+    </div>
+
+</div>
+</div>
 </nav>
 
 <div class="container">

@@ -15,7 +15,7 @@
             vm.initStartTime = new Date(vm.event.start._i);
             vm.initEndTime = new Date(vm.event.end._i);
             vm.appointment = {startTime: vm.initStartTime, endTime : vm.initEndTime, category: vm.event.category,
-                membercount :1 , title : vm.event.title, description : vm.event.description};
+                membercount :1 , title : vm.event.title, description : vm.event.description,summary: vm.event.summary};
 
             $('[data-toggle="tooltip"]').tooltip();
         }

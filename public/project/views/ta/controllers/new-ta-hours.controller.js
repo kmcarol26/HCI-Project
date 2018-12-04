@@ -20,32 +20,13 @@
             }
             vm.minTime = "11:00:00";
             vm.maxTime = "13:00:00";
-            vm.ed = '2018-11-22T12:20:00';
-            vm.sd = '2018-11-22T12:00:00';
-
+            vm.ed = '2018-12-04T12:20:00';
+            vm.sd = '2018-12-04T12:00:00';
+            $rootScope.events=[];
 
             if(vm.uid == -1) {
                 $rootScope.events=[];
 
-
-                $rootScope.events.push({
-                    title: "File Upload Issue",
-                    start: '2018-11-22T12:00:00',
-                    end: '2018-11-22T12:20:00',
-                    color: 'darkcyan',
-                    editable: false,
-                    public: true,
-                    selectable : false
-                });
-                $rootScope.events.push({
-                    start: '2018-11-22T11:05:00',
-                    end: '2018-11-22T11:15:00',
-                    color: 'black',
-                    editable: false,
-                    rendering: 'background',
-                    public: false,
-                    bg : true
-                });
 
             }
 

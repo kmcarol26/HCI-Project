@@ -5,7 +5,7 @@
 
     function studentHomeController($scope,$rootScope,$location) {
         var vm = this;
-        vm.schedulePage = schedulePage
+        vm.schedulePage = schedulePage;
 
         function schedulePage(course){
             $rootScope.course = course;

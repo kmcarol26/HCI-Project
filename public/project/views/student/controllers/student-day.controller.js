@@ -16,6 +16,8 @@
         vm.cancelAppointment = cancelAppointment;
         vm.openExisting = openExisting;
         vm.searchTerm = "";
+        vm.course = $rootScope.course;
+        console.log(vm.course);
 
 
         function init() {
@@ -96,8 +98,7 @@
                     }
                     else if ((eventObj.public == false) && eventObj.id != '1' && eventObj.id != '2') {
                         $el.html('<button class="btn btn-warning btn-sm disabled" tabindex="-1" aria-disabled="true" " >' +
-                            eventObj.category + '</button> <b>' + eventObj.title + '</b>  ' +
-                            '<button style="margin-left:525px" class="btn btn-warning btn-sm" >Cancel</button>');
+                            eventObj.category + '</button> <b>' + eventObj.title + '</b>  ');
 
                         $el.popover({
                             title: "Your Private Appointment",
@@ -111,10 +112,7 @@
 
                     else if (eventObj.public == true && eventObj.id != '1' && eventObj.id != '2') {
                         $el.html('<button class="btn btn-warning btn-sm disabled" tabindex="-1" aria-disabled="true" " >'
-                            + '' + eventObj.category + '</button> <b>' + eventObj.title + '</b> ' +
-                            '<button style="margin-left:525px"'
-                            +
-                            ' class="btn btn-warning btn-sm" >Cancel</button> ');
+                            + '' + eventObj.category + '</button> <b>' + eventObj.title + '</b> ' );
                         $el.popover({
                             title: "Your Group Appointment",
                             content: "This is your group appointment and is visible to other students.",

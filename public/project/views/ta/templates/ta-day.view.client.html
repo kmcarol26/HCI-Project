@@ -17,8 +17,22 @@
 </nav>
 
 <div class="container" ng-init="tab='appt'">
-    <h2>Office Hours Weekly Schedule for CS5200 - Database Management Systems</h2>
-    <br/>
+
+    <div class="card" style="width: 18rem;margin-left:450px">
+        <div class="card-body ">
+            <h5  ng-if="model.course == 'hci'" class="card-title">Office Hours Schedule for CS5340 Human Computer Interaction</h5>
+            <h5  ng-if="model.course == 'db'" class="card-title">Office Hours Schedule for CS5200 Database Management Systems</h5>
+            <h6 class="card-subtitle mb-2 text-muted">Teaching Assistant: Tweety</h6>
+            <h6 class="card-subtitle mb-2 text-muted">Location: WVH-320</h6>
+            <!--<a tabindex="0" class="btn btn-md btn-danger" title="Book your appointment with TA"-->
+            <!--data-toggle="popover" data-trigger="focus"-->
+            <!--data-content="Click on an existing group-->
+            <!--appointment to add yourself to the discussion.-->
+            <!--To book your own appointment,select an-->
+            <!--available timeslot and drag till the required time.">-->
+            <!--Want to book an appointment?</a>-->
+        </div>
+    </div>    <br/>
 
     <br/>
     <ul class="nav nav-tabs" id="myTab" role="tablist">
@@ -50,6 +64,7 @@
 
                 <div class="col-md-8">
 
+
                     </br>
 
                     <div class="input-group text-search">
@@ -62,14 +77,34 @@
                     </div>
 
                     <br/>
-                    <nav class=" filter nav navbar-default">
-                        <b style="font-size: 20px;">Show </b>
+                    <!--<nav class=" filter nav navbar-default">-->
+                        <!--<b style="font-size: 20px;">Show </b>-->
 
-                        <button type="button" class="btn btn-success btn-md"  ng-click="model.showAllAppointments()" >All appointments</button>
-                        <button type="button" class="btn btn-success btn-md "  ng-click="model.showMyBookedAppointments()" >Group appointments</button>
-                        <button type="button" class="btn btn-success btn-md"  ng-click="model.showAllGroupAppointments()" >Private Appointments</button>
-                    </nav>
+                        <!--<button type="button" class="btn btn-success btn-md"  ng-click="model.showAllAppointments()" >All appointments</button>-->
+                        <!--<button type="button" class="btn btn-success btn-md "  ng-click="model.showMyBookedAppointments()" >Group appointments</button>-->
+                        <!--<button type="button" class="btn btn-success btn-md"  ng-click="model.showAllGroupAppointments()" >Private Appointments</button>-->
+                    <!--</nav>-->
                     <div id='calendar' class="cal-bg " ></div>
+                </div>
+                <div class="col-md-2 " style="margin-top:100px">
+                    <nav class=" nav navbar-default">
+                        <b style="font-size: 15px;">Filter Appointments </b>
+                        <br>
+                        <br>
+                        <button type="button" class="btn btn-success btn-md" ng-click="model.showAllAppointments()">All
+                            appointments
+                        </button>
+                        <br>
+                        <br>
+                        <button type="button" class="btn btn-success btn-md " ng-click="model.showMyBookedAppointments()">My
+                            appointments
+                        </button>
+                        <br>
+                        <br>
+                        <button type="button" class="btn btn-success btn-md " ng-click="model.showAllGroupAppointments()">All
+                            Group Appointments
+                        </button>
+                    </nav>
                 </div>
 
             </div>

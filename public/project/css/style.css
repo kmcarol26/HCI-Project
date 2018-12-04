@@ -7,11 +7,11 @@ body {
     margin: 0;
     font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
     font-size: 14px;
-    background-color: whitesmoke;
+    background-color: white;
 
 }
 
-.navbar {max-height:65px;background-color: #3366FF;
+.navbar {max-height:65px;background-color: #383838;
     color:white;
 !important;}
 .drop h4,
