@@ -18,8 +18,8 @@
                         id:'1',
                         category:'HW1',
                         title: "File Upload Issue",
-                        start: '2018-11-22T12:00:00',
-                        end: '2018-11-22T12:20:00',
+                        start: '2018-12-06T12:00:00',
+                        end: '2018-12-06T12:20:00',
                         color: 'dodgerblue',
                         editable: false,
                         public: true,
@@ -28,8 +28,8 @@
                     {
                         id:'2',
                         title:"Android Layout Problem",
-                        start: '2018-11-22T11:00:00',
-                        end: '2018-11-22T11:15:00',
+                        start: '2018-12-06T11:00:00',
+                        end: '2018-12-06T11:15:00',
                         editable: false,
                         color: 'tomato',
                         public: false

@@ -30,8 +30,8 @@
                     {
                         id:'1',
                         title  : 'Office Hours:Tweety',
-                        start  : '2018-11-22T11:00:00',
-                        end    :  '2018-11-22T13:00:00',
+                        start  : '2018-12-06T11:00:00',
+                        end    :  '2018-12-06T13:00:00',
                         allDay :false,
                         url:'#/studentday/-1'
 

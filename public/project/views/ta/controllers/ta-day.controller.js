@@ -16,8 +16,8 @@
             $('.popover.in').remove();
             vm.minTime = "11:00:00";
             vm.maxTime = "13:00:00";
-            vm.ed = '2018-11-22T12:20:00';
-            vm.sd = '2018-11-22T12:00:00';
+            vm.ed = '2018-12-06T12:20:00';
+            vm.sd = '2018-12-06T12:00:00';
 
 
             // if(vm.uid == -1) {
@@ -54,7 +54,7 @@
                 allDaySlot:false,
                 height:600,
                 slotDuration:'00:05:00',
-                defaultDate: "2018-11-22",
+                defaultDate: "2018-12-06",
                 defaultView: 'agendaDay',
                 selectable: true,
                 timezone: 'local',

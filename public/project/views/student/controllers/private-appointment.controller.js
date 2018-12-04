@@ -22,16 +22,6 @@
             $('[data-toggle="tooltip"]').tooltip();
             $('[data-toggle="privateAppt-tooltip"]').tooltip();
             $('[data-toggle="publicAppt-tooltip"]').tooltip();
-            // $("#option1").click(function(){
-            //     console.log("clicked");
-            //     $(this).button('toggle');
-            //     vm.appointment.visibility = 'Private'
-            // });
-            // $("#option2").click(function(){
-            //     $(this).button('toggle');
-            //     vm.appointment.visibility = 'Public'
-            //
-            // });
 
 
         }
